@@ -1,23 +1,18 @@
-// МОБИЛЬНОЕ МЕНЮ
 document.addEventListener("DOMContentLoaded", () => {
     const menu = new MmenuLight(
-        document.querySelector(".header__menu"),
+        document.querySelector(".menu"),
         "(max-width: 992px)"
     );
-
     const navigator = menu.navigation({
-        theme: "light",
+        theme: "dark",
         title: "Меню",
     });
-
     const drawer = menu.offcanvas();
-
-    document.querySelector(".header__menu__open-menu").addEventListener("click", (e) => {
+    document.querySelector(".open-menu-button").addEventListener("click", (e) => {
         e.preventDefault();
         drawer.open();
     });
-
-    document.querySelector(".header__menu__close-menu").addEventListener("click", (e) => {
+    document.querySelector(".close-menu-button").addEventListener("click", (e) => {
         e.preventDefault();
         drawer.close();
     });

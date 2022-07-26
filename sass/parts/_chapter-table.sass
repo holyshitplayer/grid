@@ -1,0 +1,35 @@
+.chapter-table
+    display: grid
+    grid-template-columns: repeat(7, [col] 1fr)
+    grid-template-rows: repeat(4, [row] 1fr)
+    grid-gap: 16px
+
+.chapter
+    min-height: 150px
+    padding: 16px
+    display: grid
+    justify-items: center
+    align-items: center
+    text-align: center
+    outline: 1px solid #333333
+    background-color: rgba(245,245,245,0.02)
+    transition: outline .15s ease
+    &.link
+        grid-column: span 2
+    &.empty1
+        grid-row: span 2
+    &.title
+        grid-column: span 4
+        margin: 0
+    &.description
+        grid-column: span 4
+        grid-row: span 2
+    &:hover
+        outline: 1px solid #666666
+
+.chapter-title
+    margin: 0
+    +bold
+
+.chapter-description
+    margin: 0

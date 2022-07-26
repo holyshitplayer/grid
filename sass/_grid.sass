@@ -1,1 +1,44 @@
-// @media (max-width: 1200px)
+@media (max-width: 992px)
+    .open-menu-button
+        display: grid
+        order: 1
+    .logo
+        order: 2
+    .header-links
+        grid-template-columns: 1fr auto
+    .close-menu-button
+        display: block
+    .menu
+        ul
+            grid-template-columns: auto
+            li a
+                padding-left: 20px
+    .chapter-table
+        grid-template-columns: repeat(2, [col] 1fr)
+        grid-template-rows: repeat(6, [row] 1fr)
+    .chapter
+        &.empty1, &.empty2, &.empty3
+            display: none
+        &.title
+            grid-column: span 2
+            order: 1
+        &.description
+            grid-column: span 2
+            grid-row: span 2
+            order: 2
+        &.link
+            grid-column: span 1
+            order: 3
+
+@media (max-width: 576px)
+    .chapter
+        min-height: 125px
+    .chapter-table
+        grid-template-columns: repeat(1, [col] 1fr)
+        grid-template-rows: repeat(8, [row] min-content)
+    .chapter
+        &.title
+            grid-column: span 1
+        &.description
+            grid-column: span 1
+            grid-row: span 1

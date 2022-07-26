@@ -1,0 +1,55 @@
+header
+    position: sticky
+    top: 0
+    z-index: 100
+    background-color: #16171A
+    border-bottom: 1px solid #333333
+    margin-bottom: 32px
+
+.open-menu-button
+    padding: 22px
+    padding-left: 0
+    align-content: center
+    display: none
+    img
+        height: 20px
+        display: block
+
+.close-menu-button
+    position: absolute
+    right: 0
+    top: 0
+    padding: 22px
+    display: none
+    z-index: 999
+    img
+        display: block
+        height: 20px
+
+.header-links
+    display: grid
+    grid-template-columns: auto 1fr
+
+.logo
+    display: block
+    padding: 20px 0
+    margin-right: 24px
+    img
+        display: block
+        height: 24px
+
+.menu
+    ul
+        margin: 0
+        padding: 0
+        list-style-type: none
+        display: grid
+        grid-template-columns: repeat(7, max-content)
+        column-gap: 8px
+        li a
+            display: block
+            padding: 22.4px 0
+            color: #eeeeee
+            transition: color .15s ease
+            &:hover
+                color: #ffffff

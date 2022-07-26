@@ -9,12 +9,26 @@ html, body
 body
     font-size: 1rem
     position: relative
-    color: #202124
+    background-color: #16171A
+    color: #eeeeee
+    display: grid
+    min-height: 100vh
+    grid-template-rows: auto 1fr auto
+    grid-template-areas: "header" "main" "footer"
     +regular
 
 a
     text-decoration: none
-    color: #202124
+    color: #eeeeee
+
+header
+    grid-area: header
+
+main
+    grid-area: main
+
+footer
+    grid-area: footer
 
 .container
     padding: 0 30px
