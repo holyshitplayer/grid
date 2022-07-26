@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Новый стандарт вёрстки Flexbox. Детальное руководство">
+    <title>CSS Grid</title>
+    <link rel="shortcut icon" href="img/general/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="libs/mmenu-light/mmenu-light.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-links">
+                <a class="logo" href="index.html">
+                    <img src="img/general/logo.svg" alt="Logo">
+                </a>
+                <div class="open-menu-button" href="#menu">
+                    <img src="img/general/open-menu-button.svg" alt="Open menu button">
+                </div>
+                <nav class="menu">
+                    <div class="close-menu-button">
+                        <img src="img/general/close-menu-button.svg" alt="Close menu">
+                    </div>
+                    <ul>
+                        <li><a class="menu-link" href="index.html">Главная</a></li>
+                        <li><a class="menu-link" href="browsers.html">Совместимость</a></li>
+                        <li><a class="menu-link" href="terminology.html">Терминология</a></li>
+                        <li><a class="menu-link" href="container.html">Контейнер</a></li>
+                        <li><a class="menu-link" href="elements.html">Элементы</a></li>
+                        <li><a class="menu-link" href="units_fuctions.html">Единицы и функции</a></li>
+                        <li><a class="menu-link" href="examples.html">Примеры</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="article-container">
+            <h2 class="article-title title">Совместимость</h2>
+
+            <div class="article-content">
+                <div class="article-block">
+                    <p class="article-text">As of March 2017, most browsers shipped native, unprefixed support for CSS Grid: Chrome (including on Android), Firefox, Safari (including on iOS), and Opera. Internet Explorer 10 and 11 on the other hand support it, but it’s an old implementation with an outdated syntax. The time to build with grid is now!</p>
+                    <p class="article-text">To get started you have to define a container element as a grid with display: grid, set the column and row sizes with grid-template-columns and grid-template-rows, and then place its child elements into the grid with grid-column and grid-row. Similarly to flexbox, the source order of the grid items doesn’t matter. Your CSS can place them in any order, which makes it super easy to rearrange your grid with media queries. Imagine defining the layout of your entire page, and then completely rearranging it to accommodate a different screen width all with only a couple lines of CSS. Grid is one of the most powerful CSS modules ever introduced.</p>
+                    <p class="article-text">This browser support data is from Caniuse, which has more detail. A number indicates that browser supports the feature at that version and up.</p>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">Desktop</h3>
+                    <div class="browser-versions-table">
+                        <div class="browser">
+                            <p class="browser-title">Chrome</p>
+                            <p class="browser-version">57</p>
+                        </div>
+                        <div class="browser">
+                            <p class="browser-title">Firefox</p>
+                            <p class="browser-version">52</p>
+                        </div>
+                        <div class="browser">
+                            <p class="browser-title">IE</p>
+                            <p class="browser-version">11*</p>
+                        </div>
+                        <div class="browser">
+                            <p class="browser-title">Edge</p>
+                            <p class="browser-version">16</p>
+                        </div>
+                        <div class="browser">
+                            <p class="browser-title">Safari</p>
+                            <p class="browser-version">10.1</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">Mobile / Table</h3>
+                    <div class="browser-versions-table">
+                        <div class="browser">
+                            <p class="browser-title">Android Chrome</p>
+                            <p class="browser-version">103</p>
+                        </div>
+                        <div class="browser">
+                            <p class="browser-title">Android Firefox</p>
+                            <p class="browser-version">101</p>
+                        </div>
+                        <div class="browser">
+                            <p class="browser-title">Android</p>
+                            <p class="browser-version">103</p>
+                        </div>
+                        <div class="browser">
+                            <p class="browser-title">iOS Safari</p>
+                            <p class="browser-version">10.3</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a class="footer-logo" href="index.html">
+                    <img src="img/general/logo.svg" alt="Logo">
+                </a>
+                <p>Новый стандарт вёрстки Grid Layout. Детальное руководство</p>
+                <p>Батраченко Денис</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="libs/mmenu-light/mmenu-light.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
