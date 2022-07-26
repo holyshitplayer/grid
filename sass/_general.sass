@@ -5,14 +5,15 @@ html, body
     margin: 0
     padding: 0
     scroll-behavior: smooth
+    width: 100%
 
 body
     font-size: 1rem
     position: relative
     background-color: #16171A
     color: #eeeeee
-    display: grid
     min-height: 100vh
+    display: grid
     grid-template-rows: auto 1fr auto
     grid-template-areas: "header" "main" "footer"
     +regular
@@ -26,6 +27,7 @@ header
 
 main
     grid-area: main
+    overflow-x: hidden
 
 footer
     grid-area: footer

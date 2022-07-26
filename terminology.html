@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Новый стандарт вёрстки Flexbox. Детальное руководство">
+    <title>Терминология</title>
+    <link rel="shortcut icon" href="img/general/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="libs/mmenu-light/mmenu-light.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-links">
+                <a class="logo" href="index.html">
+                    <img src="img/general/logo.svg" alt="Logo">
+                </a>
+                <div class="open-menu-button" href="#menu">
+                    <img src="img/general/open-menu-button.svg" alt="Open menu button">
+                </div>
+                <nav class="menu">
+                    <div class="close-menu-button">
+                        <img src="img/general/close-menu-button.svg" alt="Close menu">
+                    </div>
+                    <ul>
+                        <li><a class="menu-link" href="index.html">Главная</a></li>
+                        <li><a class="menu-link" href="browsers.html">Совместимость</a></li>
+                        <li><a class="menu-link" href="terminology.html">Терминология</a></li>
+                        <li><a class="menu-link" href="container.html">Контейнер</a></li>
+                        <li><a class="menu-link" href="elements.html">Элементы</a></li>
+                        <li><a class="menu-link" href="units_fuctions.html">Единицы и функции</a></li>
+                        <li><a class="menu-link" href="examples.html">Примеры</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="article-container">
+            <h2 class="article-title title">Терминология</h2>
+
+            <div class="article-content">
+                <div class="article-block">
+                    <p class="article-text">Before diving into the concepts of Grid it’s important to understand the terminology. Since the terms involved here are all kinda conceptually similar, it’s easy to confuse them with one another if you don’t first memorize their meanings defined by the Grid specification. But don’t worry, there aren’t many of them.</p>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">Grid Container</h3>
+                    <p class="article-text">The element on which <code>display: grid</code> is applied. It’s the direct parent of all the grid items. In this example container is the grid container.</p>
+                    <div class="code">
+                        <code>&lt;div class="container"&gt;</code>
+                        <code>⠀⠀⠀⠀&lt;div class="item item-1"&gt; &lt;/div&gt;</code>
+                        <code>⠀⠀⠀⠀&lt;div class="item item-2"&gt; &lt;/div&gt;</code>
+                        <code>⠀⠀⠀⠀&lt;div class="item item-3"&gt; &lt;/div&gt;</code>
+                        <code>&lt;/div&gt;</code>
+                    </div>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">Grid Item</h3>
+                    <p class="article-text">The children (i.e. direct descendants) of the grid container. Here the item elements are grid items, but sub-item isn’t.</p>
+                    <div class="code">
+                        <code>&lt;div class="container"&gt;</code>
+                        <code>⠀⠀⠀⠀&lt;div class="item"&gt; &lt;/div&gt;</code>
+                        <code>⠀⠀⠀⠀&lt;div class="item"&gt; &lt;/div&gt;</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀&lt;p class="sub-item"&gt; &lt;/p&gt;</code>
+                        <code>⠀⠀⠀⠀&lt;div class="item"&gt; &lt;/div&gt;</code>
+                        <code>&lt;/div&gt;</code>
+                    </div>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">Grid Line</h3>
+                    <p class="article-text">The dividing lines that make up the structure of the grid. They can be either vertical (“column grid lines”) or horizontal (“row grid lines”) and reside on either side of a row or column. Here the yellow line is an example of a column grid line.</p>
+                    <div class="article-sheme-table grid-line">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-line"></div>
+                    </div>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">Grid Cell</h3>
+                    <p class="article-text">The space between two adjacent row and two adjacent column grid lines. It’s a single “unit” of the grid. Here’s the grid cell between row grid lines 1 and 2, and column grid lines 2 and 3.</p>
+                    <div class="article-sheme-table grid-cell">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part highlight"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">Grid Track</h3>
+                    <p class="article-text">The space between two adjacent grid lines. You can think of them as the columns or rows of the grid. Here’s the grid track between the second and third-row grid lines.</p>
+                    <div class="article-sheme-table grid-track">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part highlight"></div>
+                        <div class="article-scheme-part highlight"></div>
+                        <div class="article-scheme-part highlight"></div>
+                    </div>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">Grid Area</h3>
+                    <p class="article-text">The total space surrounded by four grid lines. A grid area may be composed of any number of grid cells. Here’s the grid area between row grid lines 1 and 3, and column grid lines 1 and 3.</p>
+                    <div class="article-sheme-table grid-area">
+                        <div class="article-scheme-part highlight"></div>
+                        <div class="article-scheme-part highlight"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part highlight"></div>
+                        <div class="article-scheme-part highlight"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a class="footer-logo" href="index.html">
+                    <img src="img/general/logo.svg" alt="Logo">
+                </a>
+                <p>Новый стандарт вёрстки Grid Layout. Детальное руководство</p>
+                <p>Батраченко Денис</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="libs/mmenu-light/mmenu-light.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

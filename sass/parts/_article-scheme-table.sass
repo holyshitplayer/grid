@@ -1,0 +1,32 @@
+.article-sheme-table
+    display: grid
+    grid-gap: 8px
+    margin-top: 8px
+    background-color: rgba(0,0,0,0.3)
+    padding: 8px
+    position: relative
+    &.grid-line, &.grid-cell, &.grid-track, &.grid-area
+        grid-template-columns: repeat(3, 1fr)
+
+.article-scheme-part
+    height: 56px
+    outline: 1px solid #333333
+    background-color: rgba(245,245,245,0.02)
+    transition: outline .1s ease, background-color .1s ease
+    &:hover
+        outline: 1px solid #666666
+        background-color: rgba(245,245,245,0.03)
+    &.highlight
+        background-color: rgba(245,245,245,0.3)
+        &:hover
+            background-color: rgba(245,245,245,0.4)
+
+.article-scheme-line
+    position: absolute
+    right: calc(100% / 3)
+    transform: translateX(50%)
+    top: 0
+    bottom: 0
+    content: ""
+    background-color: #666666
+    width: 4px
