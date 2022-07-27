@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Новый стандарт вёрстки Flexbox. Детальное руководство">
+    <title>Единицы измерения и функции</title>
+    <link rel="shortcut icon" href="img/general/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="libs/mmenu-light/mmenu-light.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-links">
+                <a class="logo" href="index.html">
+                    <img src="img/general/logo.svg" alt="Logo">
+                </a>
+                <div class="open-menu-button" href="#menu">
+                    <img src="img/general/open-menu-button.svg" alt="Open menu button">
+                </div>
+                <nav class="menu">
+                    <div class="close-menu-button">
+                        <img src="img/general/close-menu-button.svg" alt="Close menu">
+                    </div>
+                    <ul>
+                        <li><a class="menu-link" href="index.html">Главная</a></li>
+                        <li><a class="menu-link" href="browsers.html">Совместимость</a></li>
+                        <li><a class="menu-link" href="terminology.html">Терминология</a></li>
+                        <li><a class="menu-link" href="container.html">Контейнер</a></li>
+                        <li><a class="menu-link" href="elements.html">Элементы</a></li>
+                        <li><a class="menu-link" href="units_functions.html">Единицы и функции</a></li>
+                        <li><a class="menu-link" href="examples.html">Примеры</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="article-container">
+            <h2 class="article-title title">Единицы измерения и функции</h2>
+
+            <div class="article-content">
+                <div class="article-block">
+                    <h3 class="article-subtitle">fr units</h3>
+                    <p class="article-text">You’ll likely end up using a lot of fractional units in CSS Grid, like 1fr. They essentially mean “portion of the remaining space”. So a declaration like:</p>
+                    <div class="code">
+                        <code>grid-template-columns: 1fr 3fr;</code>
+                    </div>
+                    <p class="article-text">Means, loosely, 25% 75%. Except that those percentage values are much more firm than fractional units are. For example, if you added padding to those percentage-based columns, now you’ve broken 100% width (assuming a content-box box model). Fractional units also much more friendly in combination with other units, as you can imagine:</p>
+                    <div class="code">
+                        <code>grid-template-columns: 50px min-content 1fr;</code>
+                    </div>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">Sizing Keywords</h3>
+                    <p class="article-text">When sizing rows and columns, you can use all the lengths you are used to, like px, rem, %, etc, but you also have keywords:</p>
+                    <ul class="article-text">
+                        <li><code>min-content</code> – the minimum size of the content. Imagine a line of text like “E pluribus unum”, the min-content is likely the width of the word “pluribus”.</li>
+                        <li><code>max-content</code> – the maximum size of the content. Imagine the sentence above, the max-content is the length of the whole sentence.</li>
+                        <li><code>auto</code> – this keyword is a lot like fr units, except that they “lose” the fight in sizing against fr units when allocating the remaining space.</li>
+                        <li><code>fit-content</code> – use the space available, but never less than min-content and never more than max-content.</li>
+                        <li><code>fractional units</code> – see above</li>
+                    </ul>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">Sizing Functions</h3>
+                    <p class="article-text">When sizing rows and columns, you can use all the lengths you are used to, like px, rem, %, etc, but you also have keywords:</p>
+                    <ul class="article-text">
+                        <li>The <code>minmax()</code> function does exactly what it seems like: it sets a minimum and maximum value for what the length is able to be. This is useful for in combination with relative units. Like you may want a column to be only able to shrink so far. This is extremely useful and probably what you want</li>
+                        <div class="code">
+                            <code>grid-template-columns: minmax(100px, 1fr) 3fr;</code>
+                        </div>
+                        <li>The <code>min()</code> function.</li>
+                        <li>The <code>max()</code> function.</li>
+                    </ul>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">The repeat() Function and Keywords</h3>
+                    <p class="article-text">The repeat() function can save some typing:</p>
+                    <div class="code">
+                        <code>grid-template-columns:</code>
+                        <code>⠀⠀⠀⠀1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;</code>
+                        <code></code>
+                        <code>/* easier: */</code>
+                        <code>grid-template-columns:</code>
+                        <code>⠀⠀⠀⠀repeat(8, 1fr);</code>
+                        <code></code>
+                        <code>/* especially when: */</code>
+                        <code>grid-template-columns:</code>
+                        <code>⠀⠀⠀⠀repeat(8, minmax(10px, 1fr));</code>
+                    </div>
+                    <p class="article-text">But repeat() can get extra fancy when combined with keywords:</p>
+                    <ul class="article-text">
+                        <li><code>auto-fill</code> – fit as many possible columns as possible on a row, even if they are empty.</li>
+                        <li><code>auto-fit</code> – fit whatever columns there are into the space. Prefer expanding columns to fill space rather than empty columns</li>
+                    </ul>
+                    <p class="article-text">This bears the most famous snippet in all of CSS Grid and one of the all-time great CSS tricks:</p>
+                    <div class="code">
+                        <code>grid-template-columns:</code>
+                        <code>⠀⠀⠀⠀repeat(auto-fit, minmax(250px, 1fr));</code>
+                    </div>
+                    <p class="article-text">The difference between the keywords is spelled out in detail here.</p>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">Masonry</h3>
+                    <p class="article-text">An experimental feature of CSS grid is masonry layout. Note that there are lots of approaches to CSS masonry, but mostly of them are trickery and either have major downsides or aren’t what you quite expect.</p>
+                    <p class="article-text">The spec has an official way now, and this is behind a flag in Firefox:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀display: grid;</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: repeat(4, 1fr);</code>
+                        <code>⠀⠀⠀⠀grid-template-rows: masonry;</code>
+                        <code>}</code>
+                    </div>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">Subgrid</h3>
+                    <p class="article-text">Subgrid is an extremely useful feature of grids that allows grid items to have a grid of their own that inherits grid lines from the parent grid.</p>
+                    <div class="code">
+                        <code>.parent-grid {</code>
+                        <code>⠀⠀⠀⠀display: grid;</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: repeat(9, 1fr);</code>
+                        <code>}</code>
+                        <code>.grid-item {</code>
+                        <code>⠀⠀⠀⠀grid-column: 2 / 7;</code>
+                        <code>⠀⠀⠀⠀display: grid;</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: subgrid;</code>
+                        <code>}</code>
+                        <code>.child-of-grid-item {</code>
+                        <code>⠀⠀⠀⠀/* gets to participate on parent grid! */</code>
+                        <code>⠀⠀⠀⠀grid-column: 3 / 6;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">This is only supported in Firefox right now, but it really needs to get everywhere.</p>
+                    <p class="article-text">It’s also useful to know about display: contents;. This is not the same as subgrid, but it can be a useful tool sometimes in a similar fashion.</p>
+                    <div class="code">
+                        <code>&lt;div class="grid-parent"&gt;</code>
+                        <code>⠀⠀⠀⠀&lt;div class="grid-item"&gt;&lt;/div&gt;</code>
+                        <code>⠀⠀⠀⠀&lt;div class="grid-item"&gt;&lt;/div&gt;</code>
+                        <code>⠀⠀⠀⠀&lt;ul style="display: contents;"&gt;</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀&lt;!-- These grid-items get to participate on the same grid!--&gt;</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀&lt;li class="grid-item"&gt;&lt;/li&gt;</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀&lt;li class="grid-item"&gt;&lt;/li&gt;</code>
+                        <code>⠀⠀⠀⠀&lt;/ul&gt;</code>
+                        <code>&lt;/div&gt;</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a class="footer-logo" href="index.html">
+                    <img src="img/general/logo.svg" alt="Logo">
+                </a>
+                <p>Новый стандарт вёрстки Grid Layout. Детальное руководство</p>
+                <p>Батраченко Денис</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="libs/mmenu-light/mmenu-light.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
