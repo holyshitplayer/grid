@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Новый стандарт вёрстки Flexbox. Детальное руководство">
+    <title>Контейнер</title>
+    <link rel="shortcut icon" href="img/general/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="libs/mmenu-light/mmenu-light.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-links">
+                <a class="logo" href="index.html">
+                    <img src="img/general/logo.svg" alt="Logo">
+                </a>
+                <div class="open-menu-button" href="#menu">
+                    <img src="img/general/open-menu-button.svg" alt="Open menu button">
+                </div>
+                <nav class="menu">
+                    <div class="close-menu-button">
+                        <img src="img/general/close-menu-button.svg" alt="Close menu">
+                    </div>
+                    <ul>
+                        <li><a class="menu-link" href="index.html">Главная</a></li>
+                        <li><a class="menu-link" href="browsers.html">Совместимость</a></li>
+                        <li><a class="menu-link" href="terminology.html">Терминология</a></li>
+                        <li><a class="menu-link" href="container.html">Контейнер</a></li>
+                        <li><a class="menu-link" href="elements.html">Элементы</a></li>
+                        <li><a class="menu-link" href="units_fuctions.html">Единицы и функции</a></li>
+                        <li><a class="menu-link" href="examples.html">Примеры</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="article-container">
+            <h2 class="article-title title">Контейнер</h2>
+
+            <div class="article-content">
+                <div class="article-block">
+                    <h3 class="article-subtitle">display</h3>
+                    <p class="article-text">Defines the element as a grid container and establishes a new grid formatting context for its contents.</p>
+                    <p class="article-text">Values:</p>
+                    <ul class="article-text">
+                        <li><code>grid</code> – generates a block-level grid</li>
+                        <li><code>inline-grid</code> – generates an inline-level grid</li>
+                    </ul>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀display: grid | inline-grid;</code>
+                        <code>}</code>
+                    </div>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">grid-template-columns, grid-template-rows</h3>
+                    <p class="article-text">Defines the columns and rows of the grid with a space-separated list of values. The values represent the track size, and the space between them represents the grid line.</p>
+                    <p class="article-text">Values:</p>
+                    <ul class="article-text">
+                        <li><code>&lt;track-size&gt;</track-size></code> – can be a length, a percentage, or a fraction of the free space in the grid (using the fr unit)</li>
+                        <li><code>&lt;line-name&gt;</code> – an arbitrary name of your choosing</li>
+                    </ul>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: ...  ...;</code>
+                        <code>⠀⠀⠀⠀/* e.g.</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀1fr 1fr</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀minmax(10px, 1fr) 3fr</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀repeat(5, 1fr)</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀50px auto 100px 1fr</code>
+                        <code>⠀⠀⠀⠀*/</code>
+                        <code>⠀⠀⠀⠀grid-template-rows: ... ...;</code>
+                        <code>⠀⠀⠀⠀/* e.g.</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀min-content 1fr min-content</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀100px 1fr max-content</code>
+                        <code>⠀⠀⠀⠀*/</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">Grid lines are automatically assigned positive numbers from these assignments (-1 being an alternate for the very last row).</p>
+                    <img src="https://css-tricks.com/wp-content/uploads/2018/11/template-columns-rows-01.svg" alt="grid-template-columns, grid-template-rows" class="article-image">
+                    <p class="article-text">But you can choose to explicitly name the lines. Note the bracket syntax for the line names:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];</code>
+                        <code>⠀⠀⠀⠀grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];</code>
+                        <code>}</code>
+                    </div>
+                    <img src="https://css-tricks.com/wp-content/uploads/2018/11/template-column-rows-02.svg" alt="grid-template-columns, grid-template-rows" class="article-image">
+                    <p class="article-text">Note that a line can have more than one name. For example, here the second line will have two names: row1-end and row2-start:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-template-rows: [row1-start] 25% [row1-end row2-start] 25% [row2-end];</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">If your definition contains repeating parts, you can use the repeat() notation to streamline things:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: repeat(3, 20px [col-start]);</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">Which is equivalent to this:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: 20px [col-start] 20px [col-start] 20px [col-start];</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">If multiple lines share the same name, they can be referenced by their line name and count.</p>
+                    <div class="code">
+                        <code>.item {</code>
+                        <code>⠀⠀⠀⠀grid-column-start: col-start 2;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">The fr unit allows you to set the size of a track as a fraction of the free space of the grid container. For example, this will set each item to one third the width of the grid container:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: 1fr 1fr 1fr;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">The free space is calculated after any non-flexible items. In this example the total amount of free space available to the fr units doesn’t include the 50px:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: 1fr 50px 1fr 1fr;</code>
+                        <code>}</code>
+                    </div>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">grid-template-areas</h3>
+                    <p class="article-text">Defines a grid template by referencing the names of the grid areas which are specified with the grid-area property.</p>
+                    <p class="article-text">Repeating the name of a grid area causes the content to span those cells. A period signifies an empty cell. The syntax itself provides a visualization of the structure of the grid.</p>
+                    <p class="article-text">Values:</p>
+                    <ul class="article-text">
+                        <li><code>&lt;grid-area-name&gt;</code> – the name of a grid area specified with grid-area</li>
+                        <li><code>.</code> – a period signifies an empty grid cell</li>
+                        <li><code>none</code> – no grid areas are defined</li>
+                    </ul>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-template-areas: </code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀"&lt;grid-area-name&gt; | . | none | ..."</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀"...";</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">Example:</p>
+                    <div class="code">
+                        <code>.item-a {</code>
+                        <code>⠀⠀⠀⠀grid-area: header</code>
+                        <code>}</code>
+                        <code>.item-b {</code>
+                        <code>⠀⠀⠀⠀grid-area: main</code>
+                        <code>}</code>
+                        <code>.item-c {</code>
+                        <code>⠀⠀⠀⠀grid-area: sidebar</code>
+                        <code>}</code>
+                        <code>.item-d {</code>
+                        <code>⠀⠀⠀⠀grid-area: footer</code>
+                        <code>}</code>
+                        <code></code>
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀display: grid;</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: 50px 50px 50px 50px;</code>
+                        <code>⠀⠀⠀⠀grid-template-rows: auto;</code>
+                        <code>⠀⠀⠀⠀grid-template-areas: </code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀"header header header header"</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀"main main . sidebar"</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀"footer footer footer footer";</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">That’ll create a grid that’s four columns wide by three rows tall. The entire top row will be composed of the header area. The middle row will be composed of two main areas, one empty cell, and one sidebar area. The last row is all footer.</p>
+                    <div class="article-scheme-table grid-template-areas">
+                        <div class="article-scheme-part">header</div>
+                        <div class="article-scheme-part">main</div>
+                        <div class="article-scheme-part">empty</div>
+                        <div class="article-scheme-part">sidebar</div>
+                        <div class="article-scheme-part">footer</div>
+                    </div>
+                    <p class="article-text">Each row in your declaration needs to have the same number of cells.</p>
+                    <p class="article-text">You can use any number of adjacent periods to declare a single empty cell. As long as the periods have no spaces between them they represent a single cell.</p>
+                    <p class="article-text">Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo, the name of the area’s starting row line and starting column line will be foo-start, and the name of its last row line and last column line will be foo-end. This means that some lines might have multiple names, such as the far left line in the above example, which will have three names: header-start, main-start, and footer-start.</p>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">grid-template</h3>
+                    <p class="article-text">A shorthand for setting grid-template-rows, grid-template-columns, and grid-template-areas in a single declaration.</p>
+                    <p class="article-text">Values:</p>
+                    <ul class="article-text">
+                        <li><code>none</code> – sets all three properties to their initial values</li>
+                        <li><code>&lt;grid-template-rows&gt; / &lt;grid-template-columns&gt;</code> – sets grid-template-columns and grid-template-rows to the specified values, respectively, and sets grid-template-areas to none</li>
+                    </ul>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-template: none | &lt;grid-template-rows&gt; / &lt;grid-template-columns&gt;;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">It also accepts a more complex but quite handy syntax for specifying all three. Here’s an example:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-template: </code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀[row1-start] "header header header" 25px [row1-end]</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀[row2-start] "footer footer footer" 25px [row2-end]</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀/ auto 50px auto;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">That’s equivalent to this:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-template-rows: [row1-start] 25px [row1-end row2-start] 25px [row2-end];</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: auto 50px auto;</code>
+                        <code>⠀⠀⠀⠀grid-template-areas: </code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀"header header header"</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀"footer footer footer";</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">Since grid-template doesn’t reset the implicit grid properties (grid-auto-columns, grid-auto-rows, and grid-auto-flow), which is probably what you want to do in most cases, it’s recommended to use the grid property instead of grid-template.</p>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">column-gap, row-gap, grid-column-gap, grid-row-gap</h3>
+                    <p class="article-text">Specifies the size of the grid lines. You can think of it like setting the width of the gutters between the columns/rows.</p>
+                    <p class="article-text">Values:</p>
+                    <ul class="article-text">
+                        <li><code>&lt;line-size&gt;</code> – a length value</li>
+                    </ul>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀/* standard */</code>
+                        <code>⠀⠀⠀⠀column-gap: &lt;line-size&gt;;</code>
+                        <code>⠀⠀⠀⠀row-gap: &lt;line-size&gt;;</code>
+                        <code></code>
+                        <code>⠀⠀⠀⠀/* old */</code>
+                        <code>⠀⠀⠀⠀grid-column-gap: &lt;line-size&gt;;</code>
+                        <code>⠀⠀⠀⠀grid-row-gap: &lt;line-size&gt;;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">Example:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: 100px 50px 100px;</code>
+                        <code>⠀⠀⠀⠀grid-template-rows: 80px auto 80px;</code>
+                        <code>⠀⠀⠀⠀column-gap: 10px;</code>
+                        <code>⠀⠀⠀⠀row-gap: 15px;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table grid-column-gap">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <p class="article-text">The gutters are only created between the columns/rows, not on the outer edges.</p>
+                    <p class="article-text">Note: The grid- prefix will be removed and grid-column-gap and grid-row-gap renamed to column-gap and row-gap. The unprefixed properties are already supported in Chrome 68+, Safari 11.2 Release 50+, and Opera 54+.</p>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">gap, grid-gap</h3>
+                    <p class="article-text">A shorthand for row-gap and column-gap</p>
+                    <p class="article-text">Values:</p>
+                    <ul class="article-text">
+                        <li><code>&lt;grid-row-gap&gt; &lt;grid-column-gap&gt;</code> – a length values</li>
+                    </ul>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀/* standard */</code>
+                        <code>⠀⠀⠀⠀gap: &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;;</code>
+                        <code></code>
+                        <code>⠀⠀⠀⠀/* old */</code>
+                        <code>⠀⠀⠀⠀grid-gap: &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">Example:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: 100px 50px 100px;</code>
+                        <code>⠀⠀⠀⠀grid-template-rows: 80px auto 80px;</code>
+                        <code>⠀⠀⠀⠀gap: 15px 10px;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">If no row-gap is specified, it’s set to the same value as column-gap</p>
+                    <p class="article-text">Note: The grid- prefix is deprecated (but who knows, may never actually be removed from browsers). Essentially grid-gap renamed to gap. The unprefixed property is already supported in Chrome 68+, Safari 11.2 Release 50+, and Opera 54+.</p>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">justify-items</h3>
+                    <p class="article-text">Aligns grid items along the inline (row) axis (as opposed to align-items which aligns along the block (column) axis). This value applies to all grid items inside the container.</p>
+                    <p class="article-text">Values:</p>
+                    <ul class="article-text">
+                        <li><code>start</code> – aligns items to be flush with the start edge of their cell</li>
+                        <li><code>end</code> – aligns items to be flush with the end edge of their cell</li>
+                        <li><code>center</code> – aligns items in the center of their cell</li>
+                        <li><code>stretch</code> – fills the whole width of the cell (this is the default)</li>
+                    </ul>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀justify-items: start | end | center | stretch;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">Examples:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀justify-items: start;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table justify-items-start">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀justify-items: end;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table justify-items-end">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀justify-items: center;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table justify-items-center">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀justify-items: stretch;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table justify-items-stretch">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">align-items</h3>
+                    <p class="article-text">Aligns grid items along the block (column) axis (as opposed to justify-items which aligns along the inline (row) axis). This value applies to all grid items inside the container.</p>
+                    <p class="article-text">Values:</p>
+                    <ul class="article-text">
+                        <li><code>start</code> – aligns items to be flush with the start edge of their cell</li>
+                        <li><code>end</code> – aligns items to be flush with the end edge of their cell</li>
+                        <li><code>center</code> – aligns items in the center of their cell</li>
+                        <li><code>stretch</code> – fills the whole height of the cell (this is the default)</li>
+                        <li><code>baseline</code> – align items along text baseline. There are modifiers to baseline — first baseline and last baseline which will use the baseline from the first or last line in the case of multi-line text.</li>
+                    </ul>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀align-items: start | end | center | stretch;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">Examples:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀align-items: start;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table align-items-start">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀align-items: end;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table align-items-end">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀align-items: center;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table align-items-center">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀align-items: stretch;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table align-items-stretch">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <p class="article-text">This behavior can also be set on individual grid items via the align-self property.</p>
+                    <p class="article-text">There are also modifier keywords safe and unsafe (usage is like align-items: safe end). The safe keyword means “try to align like this, but not if it means aligning an item such that it moves into inaccessible overflow area”, while unsafe will allow moving content into inaccessible areas (“data loss”).</p>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">place-items</h3>
+                    <p class="article-text">place-items sets both the align-items and justify-items properties in a single declaration.</p>
+                    <p class="article-text">Values:</p>
+                    <ul class="article-text">
+                        <li><code>&lt;align-items&gt; / &lt;justify-items&gt;</code> – the first value sets align-items, the second value justify-items. If the second value is omitted, the first value is assigned to both properties.</li>
+                    </ul>
+                    <p class="article-text">For more details, see align-items and justify-items.</p>
+                    <p class="article-text">This can be very useful for super quick multi-directional centering:</p>
+                    <div class="code">
+                        <code>.center {</code>
+                        <code>⠀⠀⠀⠀display: grid;</code>
+                        <code>⠀⠀⠀⠀place-items: center;</code>
+                        <code>}</code>
+                    </div>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">justify-content</h3>
+                    <p class="article-text">Sometimes the total size of your grid might be less than the size of its grid container. This could happen if all of your grid items are sized with non-flexible units like px. In this case you can set the alignment of the grid within the grid container. This property aligns the grid along the inline (row) axis (as opposed to align-content which aligns the grid along the block (column) axis).</p>
+                    <p class="article-text">Values:</p>
+                    <ul class="article-text">
+                        <li><code>start</code> – aligns the grid to be flush with the start edge of the grid container</li>
+                        <li><code>end</code> – aligns the grid to be flush with the end edge of the grid container</li>
+                        <li><code>center</code> – aligns the grid in the center of the grid container</li>
+                        <li><code>stretch</code> – resizes the grid items to allow the grid to fill the full width of the grid container</li>
+                        <li><code>space-around</code> – places an even amount of space between each grid item, with half-sized spaces on the far ends</li>
+                        <li><code>space-between</code> – places an even amount of space between each grid item, with no space at the far ends</li>
+                        <li><code>space-evenly</code> – places an even amount of space between each grid item, including the far ends</li>
+                    </ul>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀justify-content: start | end | center | stretch | space-around | space-between | space-evenly;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">Examples:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀justify-content: start;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table justify-content-start">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀justify-content: end;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table justify-content-end">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀justify-content: center;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table justify-content-center">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀justify-content: stretch;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table justify-content-stretch">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀justify-content: space-around;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table justify-content-space-around">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀justify-content: space-between;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table justify-content-space-between">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀justify-content: space-evenly;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table justify-content-space-evenly">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">align-content</h3>
+                    <p class="article-text">Sometimes the total size of your grid might be less than the size of its grid container. This could happen if all of your grid items are sized with non-flexible units like px. In this case you can set the alignment of the grid within the grid container. This property aligns the grid along the block (column) axis (as opposed to justify-content which aligns the grid along the inline (row) axis).</p>
+                    <p class="article-text">Values:</p>
+                    <ul class="article-text">
+                        <li><code>start</code> – aligns the grid to be flush with the start edge of the grid container</li>
+                        <li><code>end</code> – aligns the grid to be flush with the end edge of the grid container</li>
+                        <li><code>center</code> – aligns the grid in the center of the grid container</li>
+                        <li><code>stretch</code> – resizes the grid items to allow the grid to fill the full width of the grid container</li>
+                        <li><code>space-around</code> – places an even amount of space between each grid item, with half-sized spaces on the far ends</li>
+                        <li><code>space-between</code> – places an even amount of space between each grid item, with no space at the far ends</li>
+                        <li><code>space-evenly</code> – places an even amount of space between each grid item, including the far ends</li>
+                    </ul>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀align-content: start | end | center | stretch | space-around | space-between | space-evenly;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">Examples:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀align-content: start;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table align-content-start">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀align-content: end;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table align-content-end">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀align-content: center;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table align-content-center">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀align-content: stretch;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table align-content-stretch">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀align-content: space-around;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table align-content-space-around">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀align-content: space-between;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table align-content-space-between">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀align-content: space-evenly;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table align-content-space-evenly">
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                        <div class="article-scheme-part"></div>
+                    </div>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">place-content</h3>
+                    <p class="article-text">place-content sets both the align-content and justify-content properties in a single declaration.</p>
+                    <p class="article-text">Values:</p>
+                    <ul class="article-text">
+                        <li><code>&lt;align-content&gt; / &lt;justify-content&gt;</code> – the first value sets align-content, the second value justify-content. If the second value is omitted, the first value is assigned to both properties.</li>
+                    </ul>
+                    <p class="article-text">All major browsers except Edge support the place-content shorthand property.</p>
+                    <p class="article-text">For more details, see align-content and justify-content.</p>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">grid-auto-columns, grid-auto-rows</h3>
+                    <p class="article-text">Specifies the size of any auto-generated grid tracks (aka implicit grid tracks). Implicit tracks get created when there are more grid items than cells in the grid or when a grid item is placed outside of the explicit grid. (see The Difference Between Explicit and Implicit Grids)</p>
+                    <p class="article-text">Values:</p>
+                    <ul class="article-text">
+                        <li><code>&lt;track-size&gt;</code> – can be a length, a percentage, or a fraction of the free space in the grid (using the fr unit)</li>
+                    </ul>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-auto-columns: &lt;track-size&gt; ...;</code>
+                        <code>⠀⠀⠀⠀grid-auto-rows: &lt;track-size&gt; ...;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">To illustrate how implicit grid tracks get created, think about this:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: 60px 60px;</code>
+                        <code>⠀⠀⠀⠀grid-template-rows: 90px 90px;</code>
+                        <code>}</code>
+                    </div>
+                    <img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-auto-columns-rows-01.svg" alt="grid-auto-columns, grid-auto-rows" class="article-image">
+                    <p class="article-text">This creates a 2 x 2 grid.</p>
+                    <p class="article-text">But now imagine you use grid-column and grid-row to position your grid items like this:</p>
+                    <div class="code">
+                        <code>.item-a {</code>
+                        <code>⠀⠀⠀⠀grid-column: 1 / 2;</code>
+                        <code>⠀⠀⠀⠀grid-row: 2 / 3;</code>
+                        <code>}</code>
+                        <code>.item-b {</code>
+                        <code>⠀⠀⠀⠀grid-column: 5 / 6;</code>
+                        <code>⠀⠀⠀⠀grid-row: 2 / 3;</code>
+                        <code>}</code>
+                    </div>
+                    <img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-auto-columns-rows-02.svg" alt="grid-auto-columns, grid-auto-rows" class="article-image">
+                    <p class="article-text">We told .item-b to start on column line 5 and end at column line 6, but we never defined a column line 5 or 6. Because we referenced lines that don’t exist, implicit tracks with widths of 0 are created to fill in the gaps. We can use grid-auto-columns and grid-auto-rows to specify the widths of these implicit tracks:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-auto-columns: 60px;</code>
+                        <code>}</code>
+                    </div>
+                    <img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-auto-columns-rows-03.svg" alt="grid-auto-columns, grid-auto-rows" class="article-image">
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">grid-auto-flow</h3>
+                    <p class="article-text">If you have grid items that you don’t explicitly place on the grid, the auto-placement algorithm kicks in to automatically place the items. This property controls how the auto-placement algorithm works.</p>
+                    <p class="article-text">Values:</p>
+                    <ul class="article-text">
+                        <li><code>row</code> – tells the auto-placement algorithm to fill in each row in turn, adding new rows as necessary (default)</li>
+                        <li><code>column</code> – tells the auto-placement algorithm to fill in each column in turn, adding new columns as necessary</li>
+                        <li><code>dense</code> – tells the auto-placement algorithm to attempt to fill in holes earlier in the grid if smaller items come up later</li>
+                    </ul>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-auto-flow: row | column | row dense | column dense;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">Note that dense only changes the visual order of your items and might cause them to appear out of order, which is bad for accessibility.</p>
+                    <p class="article-text">Examples:</p>
+                    <p class="article-text">Consider this HTML:</p>
+                    <div class="code">
+                        <code>&lt;section class="container"&gt;</code>
+                        <code>⠀⠀⠀⠀&lt;div class="item-a"&gt;item-a&lt;/div&gt;</code>
+                        <code>⠀⠀⠀⠀&lt;div class="item-b"&gt;item-b&lt;/div&gt;</code>
+                        <code>⠀⠀⠀⠀&lt;div class="item-c"&gt;item-c&lt;/div&gt;</code>
+                        <code>⠀⠀⠀⠀&lt;div class="item-d"&gt;item-d&lt;/div&gt;</code>
+                        <code>⠀⠀⠀⠀&lt;div class="item-e"&gt;item-e&lt;/div&gt;</code>
+                        <code>&lt;/section&gt;</code>
+                    </div>
+                    <p class="article-text">You define a grid with five columns and two rows, and set grid-auto-flow to row (which is also the default):</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀display: grid;</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: 60px 60px 60px 60px 60px;</code>
+                        <code>⠀⠀⠀⠀grid-template-rows: 30px 30px;</code>
+                        <code>⠀⠀⠀⠀grid-auto-flow: row;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">When placing the items on the grid, you only specify spots for two of them:</p>
+                    <div class="code">
+                        <code>.item-a {</code>
+                        <code>⠀⠀⠀⠀grid-column: 1;</code>
+                        <code>⠀⠀⠀⠀grid-row: 1 / 3;</code>
+                        <code>}</code>
+                        <code>.item-e {</code>
+                        <code>⠀⠀⠀⠀grid-column: 5;</code>
+                        <code>⠀⠀⠀⠀grid-row: 1 / 3;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">Because we set grid-auto-flow to row, our grid will look like this. Notice how the three items we didn’t place (item-b, item-c and item-d) flow across the available rows:</p>
+                    <div class="article-scheme-table grid-auto-flow-row">
+                        <div class="article-scheme-part">item-a</div>
+                        <div class="article-scheme-part">item-b</div>
+                        <div class="article-scheme-part">item-c</div>
+                        <div class="article-scheme-part">item-d</div>
+                        <div class="article-scheme-part">item-e</div>
+                    </div>
+                    <p class="article-text">If we instead set grid-auto-flow to column, item-b, item-c and item-d flow down the columns:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀display: grid;</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: 60px 60px 60px 60px 60px;</code>
+                        <code>⠀⠀⠀⠀grid-template-rows: 30px 30px;</code>
+                        <code>⠀⠀⠀⠀grid-auto-flow: column;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="article-scheme-table grid-auto-flow-column">
+                        <div class="article-scheme-part">item-a</div>
+                        <div class="article-scheme-part">item-b</div>
+                        <div class="article-scheme-part">item-c</div>
+                        <div class="article-scheme-part">item-d</div>
+                        <div class="article-scheme-part">item-e</div>
+                    </div>
+                </div>
+                <div class="article-block">
+                    <h3 class="article-subtitle">grid</h3>
+                    <p class="article-text">A shorthand for setting all of the following properties in a single declaration: grid-template-rows, grid-template-columns, grid-template-areas, grid-auto-rows, grid-auto-columns, and grid-auto-flow (Note: You can only specify the explicit or the implicit grid properties in a single grid declaration).</p>
+                    <p class="article-text">Values:</p>
+                    <ul class="article-text">
+                        <li><code>none</code> – the first value sets align-content, the second value justify-content. If the second value is omitted, the first value is assigned to both properties.</li>
+                        <li><code>&lt;grid-template&gt;</code> – works the same as the grid-template shorthand.</li>
+                        <li><code>&lt;grid-template-rows&gt; / [ auto-flow && dense? ] &lt;grid-auto-columns&gt;?</code> – sets grid-template-rows to the specified value. If the auto-flow keyword is to the right of the slash, it sets grid-auto-flow to column. If the dense keyword is specified additionally, the auto-placement algorithm uses a “dense” packing algorithm. If grid-auto-columns is omitted, it is set to auto.</li>
+                        <li><code>[ auto-flow && dense? ] &lt;grid-auto-rows&gt;? / &lt;grid-template-columns&gt;</code> – sets grid-template-columns to the specified value. If the auto-flow keyword is to the left of the slash, it sets grid-auto-flow to row. If the dense keyword is specified additionally, the auto-placement algorithm uses a “dense” packing algorithm. If grid-auto-rows is omitted, it is set to auto.</li>
+                    </ul>
+                    <p class="article-text">Examples:</p>
+                    <p class="article-text">The following two code blocks are equivalent:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid: 100px 300px / 3fr 1fr;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-template-rows: 100px 300px;</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: 3fr 1fr;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">The following two code blocks are equivalent:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid: auto-flow / 200px 1fr;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-auto-flow: row;</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: 200px 1fr;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">The following two code blocks are equivalent:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid: auto-flow dense 100px / 1fr 2fr;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-auto-flow: row dense;</code>
+                        <code>⠀⠀⠀⠀grid-auto-rows: 100px;</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: 1fr 2fr;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">And the following two code blocks are equivalent:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid: 100px 300px / auto-flow 200px;</code>
+                        <code>}</code>
+                    </div>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-template-rows: 100px 300px;</code>
+                        <code>⠀⠀⠀⠀grid-auto-flow: column;</code>
+                        <code>⠀⠀⠀⠀grid-auto-columns: 200px;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">It also accepts a more complex but quite handy syntax for setting everything at once. You specify grid-template-areas, grid-template-rows and grid-template-columns, and all the other sub-properties are set to their initial values. What you’re doing is specifying the line names and track sizes inline with their respective grid areas. This is easiest to describe with an example:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid: [row1-start] "header header header" 1fr [row1-end]</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀[row2-start] "footer footer footer" 25px [row2-end]</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀/ auto 50px auto;</code>
+                        <code>}</code>
+                    </div>
+                    <p class="article-text">That’s equivalent to this:</p>
+                    <div class="code">
+                        <code>.container {</code>
+                        <code>⠀⠀⠀⠀grid-template-areas:</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀"header header header"</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀"footer footer footer";</code>
+                        <code>⠀⠀⠀⠀grid-template-rows: [row1-start] 1fr [row1-end row2-start] 25px [row2-end];</code>
+                        <code>⠀⠀⠀⠀grid-template-columns: auto 50px auto;</code>
+                        <code>}</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a class="footer-logo" href="index.html">
+                    <img src="img/general/logo.svg" alt="Logo">
+                </a>
+                <p>Новый стандарт вёрстки Grid Layout. Детальное руководство</p>
+                <p>Батраченко Денис</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="libs/mmenu-light/mmenu-light.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

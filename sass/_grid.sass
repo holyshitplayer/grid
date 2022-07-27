@@ -70,3 +70,14 @@
         padding-left: 0
         img
             height: 16px
+    .article-scheme-table
+        &.justify-content-start, &.justify-content-end, &.justify-content-center, &.justify-content-stretch, &.justify-content-space-around, &.justify-content-space-between, &.justify-content-space-evenly
+            .article-scheme-part
+                width: 75px
+                &:nth-child(2), &:nth-child(5), &:nth-child(8)
+                    width: 30px
+        &.justify-content-stretch
+            .article-scheme-part
+                width: 100%
+                &:nth-child(2), &:nth-child(5), &:nth-child(8)
+                    width: 100%
