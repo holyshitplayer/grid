@@ -82,7 +82,6 @@
                         <code>}</code>
                     </div>
                     <p class="article-text">Линии сетки автоматически получают положительные числа из этих назначений (-1 является альтернативой для самой последней строки).</p>
-                    <img src="https://css-tricks.com/wp-content/uploads/2018/11/template-columns-rows-01.svg" alt="grid-template-columns, grid-template-rows" class="article-image">
                     <p class="article-text">Но вы можете явно назвать строки. Обратите внимание на синтаксис скобок для именования строк:</p>
                     <div class="code">
                         <code>.container {</code>
@@ -90,7 +89,6 @@
                         <code>⠀⠀⠀⠀grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];</code>
                         <code>}</code>
                     </div>
-                    <img src="https://css-tricks.com/wp-content/uploads/2018/11/template-column-rows-02.svg" alt="grid-template-columns, grid-template-rows" class="article-image">
                     <p class="article-text">Обратите внимание, что строка может иметь более одного имени. Например, здесь вторая строка будет иметь два имени: row1-end и row2-start:</p>
                     <div class="code">
                         <code>.container {</code>
@@ -754,7 +752,6 @@
                         <code>⠀⠀⠀⠀grid-template-rows: 90px 90px;</code>
                         <code>}</code>
                     </div>
-                    <img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-auto-columns-rows-01.svg" alt="grid-auto-columns, grid-auto-rows" class="article-image">
                     <p class="article-text">Это создает сетку 2 x 2.</p>
                     <p class="article-text">Но теперь представьте, что вы используете grid-column и grid-row для позиционирования элементов сетки следующим образом:</p>
                     <div class="code">
@@ -767,14 +764,12 @@
                         <code>⠀⠀⠀⠀grid-row: 2 / 3;</code>
                         <code>}</code>
                     </div>
-                    <img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-auto-columns-rows-02.svg" alt="grid-auto-columns, grid-auto-rows" class="article-image">
                     <p class="article-text">Мы задали, что .item-b начинаться со столбца 5 и заканчиваться столбцом 6, но мы никогда не определяли столбец 5 или 6. Поскольку мы ссылались на строки, которые не существуют, неявные дорожки с шириной 0 создаются для заполнения в отступах. Мы можем использовать grid-auto-columns и grid-auto-rows, чтобы указать ширину этих неявных дорожек:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid-auto-columns: 60px;</code>
                         <code>}</code>
                     </div>
-                    <img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-auto-columns-rows-03.svg" alt="grid-auto-columns, grid-auto-rows" class="article-image">
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">grid-auto-flow</h3>
