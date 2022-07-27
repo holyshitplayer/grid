@@ -44,11 +44,11 @@
 
             <div class="article-content">
                 <div class="article-block">
-                    <p class="article-text">Before diving into the concepts of Grid it’s important to understand the terminology. Since the terms involved here are all kinda conceptually similar, it’s easy to confuse them with one another if you don’t first memorize their meanings defined by the Grid specification. But don’t worry, there aren’t many of them.</p>
+                    <p class="article-text">Прежде чем погрузиться в концепции Grid, необходимо понять базовые термины. Поскольку все задействованные здесь термины концептуально похожи, их легко спутать друг с другом. Поэтому сначала детально ознакомьтесь со всеми терминами и затем приступайте к изучению концепций.</p>
                 </div>
                 <div class="article-block">
-                    <h3 class="article-subtitle">Grid Container</h3>
-                    <p class="article-text">The element on which <code>display: grid</code> is applied. It’s the direct parent of all the grid items. In this example container is the grid container.</p>
+                    <h3 class="article-subtitle">Grid-контейнер</h3>
+                    <p class="article-text">Элемент, к которому применяется <code>display: grid</code> является прямым родитеем всех элементов сетки. В этом примере контейнером является блок с классом "container".</p>
                     <div class="code">
                         <code>&lt;div class="container"&gt;</code>
                         <code>⠀⠀⠀⠀&lt;div class="item item-1"&gt; &lt;/div&gt;</code>
@@ -58,8 +58,8 @@
                     </div>
                 </div>
                 <div class="article-block">
-                    <h3 class="article-subtitle">Grid Item</h3>
-                    <p class="article-text">The children (i.e. direct descendants) of the grid container. Here the item elements are grid items, but sub-item isn’t.</p>
+                    <h3 class="article-subtitle">Grid-элемент</h3>
+                    <p class="article-text">Прямые потомки контейнера сетки - это элементы, которые являются прямыми дочерними элементами сетки. Потомками сетки являются только прямые потомки контейнера, а подэлементы в потомках нет.</p>
                     <div class="code">
                         <code>&lt;div class="container"&gt;</code>
                         <code>⠀⠀⠀⠀&lt;div class="item"&gt; &lt;/div&gt;</code>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">Grid Line</h3>
-                    <p class="article-text">The dividing lines that make up the structure of the grid. They can be either vertical (“column grid lines”) or horizontal (“row grid lines”) and reside on either side of a row or column. Here the yellow line is an example of a column grid line.</p>
+                    <p class="article-text">Разделительные линии, составляющие структуру сетки. Они могут быть вертикальными («линии сетки столбцов») или горизонтальными («линии сетки строк») и располагаться по обе стороны строки или столбца. Здесь линия является примером линии сетки столбцов.</p>
                     <div class="article-scheme-table grid-line">
                         <div class="article-scheme-part"></div>
                         <div class="article-scheme-part"></div>
@@ -87,7 +87,7 @@
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">Grid Cell</h3>
-                    <p class="article-text">The space between two adjacent row and two adjacent column grid lines. It’s a single “unit” of the grid. Here’s the grid cell between row grid lines 1 and 2, and column grid lines 2 and 3.</p>
+                    <p class="article-text">Пространство между двумя соседними строками и двумя соседними линиями сетки столбцов. Это отдельная «единица» сетки. Ниже представлена ячейка сетки между линиями сетки строк 1 и 2 и линиями сетки столбцов 2 и 3.</p>
                     <div class="article-scheme-table grid-cell">
                         <div class="article-scheme-part"></div>
                         <div class="article-scheme-part"></div>
@@ -102,7 +102,7 @@
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">Grid Track</h3>
-                    <p class="article-text">The space between two adjacent grid lines. You can think of them as the columns or rows of the grid. Here’s the grid track between the second and third-row grid lines.</p>
+                    <p class="article-text">Пространство между двумя соседними линиями сетки. Вы можете думать о них как об отдельном столбце или отдельной строке сетки. Ниже пример дорожки сетки между второй и третьей линиями сетки.</p>
                     <div class="article-scheme-table grid-track">
                         <div class="article-scheme-part"></div>
                         <div class="article-scheme-part"></div>
@@ -117,7 +117,7 @@
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">Grid Area</h3>
-                    <p class="article-text">The total space surrounded by four grid lines. A grid area may be composed of any number of grid cells. Here’s the grid area between row grid lines 1 and 3, and column grid lines 1 and 3.</p>
+                    <p class="article-text">Общее пространство окружено четырьмя линиями сетки. Область сетки может состоять из любого количества ячеек сетки. Ниже пример области сетки между линиями сетки строк 1 и 3 и линиями сетки столбцов 1 и 3.</p>
                     <div class="article-scheme-table grid-area">
                         <div class="article-scheme-part highlight"></div>
                         <div class="article-scheme-part highlight"></div>

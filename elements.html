@@ -45,13 +45,13 @@
             <div class="article-content">
                 <div class="article-block">
                     <h3 class="article-subtitle">grid-column-start, grid-column-end, grid-row-start, grid-row-end</h3>
-                    <p class="article-text">Determines a grid item’s location within the grid by referring to specific grid lines. grid-column-start/grid-row-start is the line where the item begins, and grid-column-end/grid-row-end is the line where the item ends.</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Определяет положение элемента в пределах сетки, ссылаясь на определенные линии сетки. grid-column-start/grid-row-start — это строка, в которой начинается элемент, а grid-column-end/grid-row-end — строка, в которой элемент заканчивается.</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>&lt;line&gt;</code> – can be a number to refer to a numbered grid line, or a name to refer to a named grid line</li>
-                        <li><code>span &lt;number&gt;</code> – the item will span across the provided number of grid tracks</li>
-                        <li><code>span &lt;name&gt;</code> – the item will span across until it hits the next line with the provided name</li>
-                        <li><code>auto</code> – indicates auto-placement, an automatic span, or a default span of one</li>
+                        <li><code>&lt;line&gt;</code> – может быть числом для ссылки на пронумерованную линию сетки или именем для ссылки на именованную линию сетки</li>
+                        <li><code>span &lt;number&gt;</code> – элемент будет охватывать указанное количество дорожек сетки</li>
+                        <li><code>span &lt;name&gt;</code> – элемент будет охватывать до тех пор, пока не достигнет следующей строки с указанным именем</li>
+                        <li><code>auto</code> – указывает на автоматическое размещение, автоматический диапазон или диапазон по умолчанию, равный одному</li>
                     </ul>
                     <div class="code">
                         <code>.item {</code>
@@ -61,7 +61,7 @@
                         <code>⠀⠀⠀⠀grid-row-end: &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">Examples:</p>
+                    <p class="article-text">Примеры:</p>
                     <div class="code">
                         <code>.item-a {</code>
                         <code>⠀⠀⠀⠀grid-column-start: 2;</code>
@@ -80,15 +80,15 @@
                         <code>}</code>
                     </div>
                     <img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-column-row-start-end-02.svg" alt="grid column start-end" class="article-image">
-                    <p class="article-text">If no grid-column-end/grid-row-end is declared, the item will span 1 track by default.</p>
-                    <p class="article-text">Items can overlap each other. You can use z-index to control their stacking order.</p>
+                    <p class="article-text">Если grid-column-end/grid-row-end не объявлен, элемент по умолчанию будет занимать 1 дорожку..</p>
+                    <p class="article-text">Элементы могут накладываться друг на друга. Вы можете использовать z-index для управления порядком их размещения..</p>
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">grid-column, grid-row</h3>
-                    <p class="article-text">Shorthand for grid-column-start + grid-column-end, and grid-row-start + grid-row-end, respectively.</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Сокращение для grid-column-start + grid-column-end и grid-row-start + grid-row-end соответственно.</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>&lt;start-line&gt; / &lt;end-line&gt;</code> – each one accepts all the same values as the longhand version, including span</li>
+                        <li><code>&lt;start-line&gt; / &lt;end-line&gt;</code> – каждый принимает все те же значения, что и полные версии свойств, включая диапазон</li>
                     </ul>
                     <div class="code">
                         <code>.item {</code>
@@ -96,7 +96,7 @@
                         <code>⠀⠀⠀⠀grid-row: &lt;start-line&gt; / &lt;end-line&gt; | &lt;start-line&gt; / span &lt;value&gt;;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">Example:</p>
+                    <p class="article-text">Пример:</p>
                     <div class="code">
                         <code>.item-c {</code>
                         <code>⠀⠀⠀⠀grid-column: 3 / span 2;</code>
@@ -104,29 +104,29 @@
                         <code>}</code>
                     </div>
                     <img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-column-row.svg" alt="grid column start-end" class="article-image">
-                    <p class="article-text">If no end line value is declared, the item will span 1 track by default.</p>
+                    <p class="article-text">Если значение конечной строки не объявлено, элемент по умолчанию будет охватывать 1 дорожку.</p>
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">grid-area</h3>
-                    <p class="article-text">Gives an item a name so that it can be referenced by a template created with the grid-template-areas property. Alternatively, this property can be used as an even shorter shorthand for grid-row-start + grid-column-start + grid-row-end + grid-column-end.</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Дает элементу имя, чтобы на него можно было ссылаться в шаблоне, созданном с помощью свойства grid-template-areas. Кроме того, это свойство можно использовать как еще более короткое сокращение для grid-row-start + grid-column-start + grid-row-end + grid-column-end.</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>&lt;name&gt;</code> – a name of your choosing</li>
-                        <li><code>&lt;row-start&gt; / &lt;column-start&gt; / &lt;row-end&gt; / &lt;column-end&gt;</code> – can be numbers or named lines</li>
+                        <li><code>&lt;name&gt;</code> – имя области сетки</li>
+                        <li><code>&lt;row-start&gt; / &lt;column-start&gt; / &lt;row-end&gt; / &lt;column-end&gt;</code> – может быть числом или именованной строкой/столбцом</li>
                     </ul>
                     <div class="code">
                         <code>.item {</code>
                         <code>⠀⠀⠀⠀grid-area: &lt;name&gt; | &lt;row-start&gt; / &lt;column-start&gt; / &lt;row-end&gt; / &lt;column-end&gt;;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">Examples:</p>
-                    <p class="article-text">As a way to assign a name to the item:</p>
+                    <p class="article-text">Примеры:</p>
+                    <p class="article-text">Присвоение имение элементу:</p>
                     <div class="code">
                         <code>.item-d {</code>
                         <code>⠀⠀⠀⠀grid-area: header;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">As the short-shorthand for grid-row-start + grid-column-start + grid-row-end + grid-column-end:</p>
+                    <p class="article-text">Сокращение от grid-row-start + grid-column-start + grid-row-end + grid-column-end:</p>
                     <div class="code">
                         <code>.item-d {</code>
                         <code>⠀⠀⠀⠀grid-area: 1 / col4-start / last-line / 6;</code>
@@ -136,20 +136,20 @@
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">justify-self</h3>
-                    <p class="article-text">Aligns a grid item inside a cell along the inline (row) axis (as opposed to align-self which aligns along the block (column) axis). This value applies to a grid item inside a single cell.</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Выравнивает элемент внутри ячейки сетка вдоль строчной оси (строки) (в отличии от свойства align-self, которое выравнивает вдоль блочной оси (столбец)). Это значение применяется к элементу сетки внутри одной ячейки.</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>start</code> – aligns the grid item to be flush with the start edge of the cell</li>
-                        <li><code>end</code> – aligns the grid item to be flush with the end edge of the cell</li>
-                        <li><code>center</code> – aligns the grid item in the center of the cell</li>
-                        <li><code>stretch</code> – fills the whole width of the cell (this is the default)</li>
+                        <li><code>start</code> – выравнивает элемент сетки так, чтобы он был на одном уровне с начальным краем ячейки</li>
+                        <li><code>end</code> – выравнивает элемент сетки так, чтобы он был на одном уровне с конечным краем ячейки</li>
+                        <li><code>center</code> – выравнивает элемент сетки по центру ячейки</li>
+                        <li><code>stretch</code> – заполняет всю ширину ячейки (по умолчанию)</li>
                     </ul>
                     <div class="code">
                         <code>.item {</code>
                         <code>⠀⠀⠀⠀justify-self: start | end | center | stretch;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">Examples:</p>
+                    <p class="article-text">Примеры:</p>
                     <div class="code">
                         <code>.item-a {</code>
                         <code>⠀⠀⠀⠀justify-self: start;</code>
@@ -185,20 +185,20 @@
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">align-self</h3>
-                    <p class="article-text">Aligns a grid item inside a cell along the block (column) axis (as opposed to justify-self which aligns along the inline (row) axis). This value applies to the content inside a single grid item.</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Выравнивает элемент внутри ячейки сетки по блочной оси (столбец) (в отличии от свойства justify-self, которое выравнивает по строчной оси (строки). Это значение применяется к содержимому внутри одного элемента сетки.</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>start</code> – aligns the grid item to be flush with the start edge of the cell</li>
-                        <li><code>end</code> – aligns the grid item to be flush with the end edge of the cell</li>
-                        <li><code>center</code> – aligns the grid item in the center of the cell</li>
-                        <li><code>stretch</code> – fills the whole width of the cell (this is the default)</li>
+                        <li><code>start</code> – выравнивает элемент сетки так, чтобы он был на одном уровне с начальным краем ячейки</li>
+                        <li><code>end</code> – выравнивает элемент сетки так, чтобы он был на одном уровне с конечным краем ячейки</li>
+                        <li><code>center</code> – выравнивает элемент сетки по центру ячейки</li>
+                        <li><code>stretch</code> – заполняет всю высоту ячейки (по умолчанию)</li>
                     </ul>
                     <div class="code">
                         <code>.item {</code>
                         <code>⠀⠀⠀⠀align-self: start | end | center | stretch;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">Examples:</p>
+                    <p class="article-text">Примеры:</p>
                     <div class="code">
                         <code>.item-a {</code>
                         <code>⠀⠀⠀⠀align-self: start;</code>
@@ -234,13 +234,13 @@
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">place-self</h3>
-                    <p class="article-text">place-self sets both the align-self and justify-self properties in a single declaration.</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">place-self устанавливает свойства align-self и justify-self в одном объявлении.</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>auto</code> – the “default” alignment for the layout mode</li>
-                        <li><code>&lt;align-self&gt; / &lt;justify-self&gt;</code> – the first value sets align-self, the second value justify-self. If the second value is omitted, the first value is assigned to both properties.</li>
+                        <li><code>auto</code> – стандартное значение выравнивания</li>
+                        <li><code>&lt;align-self&gt; / &lt;justify-self&gt;</code> – первое значение устанавливает align-self, второе значение — justify-self. Если второе значение опущено, первое значение присваивается обоим свойствам.</li>
                     </ul>
-                    <p class="article-text">Examples:</p>
+                    <p class="article-text">Примеры:</p>
                     <div class="code">
                         <code>.item-a {</code>
                         <code>⠀⠀⠀⠀place-self: center;</code>
@@ -257,7 +257,7 @@
                     <div class="article-scheme-table place-self-center-stretch">
                         <div class="article-scheme-part"></div>
                     </div>
-                    <p class="article-text">All major browsers except Edge support the place-self shorthand property.</p>
+                    <p class="article-text">Все основные браузеры, кроме Edge, поддерживают сокращенное свойство place-self.</p>
                 </div>
             </div>
         </div>

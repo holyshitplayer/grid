@@ -44,70 +44,69 @@
 
             <div class="article-content">
                 <div class="article-block">
-                    <h3 class="article-subtitle">fr units</h3>
-                    <p class="article-text">You’ll likely end up using a lot of fractional units in CSS Grid, like 1fr. They essentially mean “portion of the remaining space”. So a declaration like:</p>
+                    <h3 class="article-subtitle">Единицы измерения fr</h3>
+                    <p class="article-text">Вероятнее всего, при использовании CSS Grid вы будете часто применять дробные единицы (fr). По сути, они означают «часть оставшегося пространства». Итак, объявление типа:</p>
                     <div class="code">
                         <code>grid-template-columns: 1fr 3fr;</code>
                     </div>
-                    <p class="article-text">Means, loosely, 25% 75%. Except that those percentage values are much more firm than fractional units are. For example, if you added padding to those percentage-based columns, now you’ve broken 100% width (assuming a content-box box model). Fractional units also much more friendly in combination with other units, as you can imagine:</p>
+                    <p class="article-text">Значит, приблизительно, 25% 75%. За исключением того, что эти процентные значения не такие гибкие, как дробные единицы. Например, если вы добавили отступы к этим процентным столбцам, то вы нарушили 100% ширину (предполагая блочную модель содержимого). Дробные единицы также намного удобнее в сочетании с другими единицами, как вы можете увидеть:</p>
                     <div class="code">
                         <code>grid-template-columns: 50px min-content 1fr;</code>
                     </div>
                 </div>
                 <div class="article-block">
-                    <h3 class="article-subtitle">Sizing Keywords</h3>
-                    <p class="article-text">When sizing rows and columns, you can use all the lengths you are used to, like px, rem, %, etc, but you also have keywords:</p>
+                    <h3 class="article-subtitle">Ключевые размерные слова</h3>
+                    <p class="article-text">При изменении размеров строк и столбцов вы можете использовать все длины, к которым вы привыкли, такие как px, rem, % и т. д., но вы также можете применить ключевые слова:</p>
                     <ul class="article-text">
-                        <li><code>min-content</code> – the minimum size of the content. Imagine a line of text like “E pluribus unum”, the min-content is likely the width of the word “pluribus”.</li>
-                        <li><code>max-content</code> – the maximum size of the content. Imagine the sentence above, the max-content is the length of the whole sentence.</li>
-                        <li><code>auto</code> – this keyword is a lot like fr units, except that they “lose” the fight in sizing against fr units when allocating the remaining space.</li>
-                        <li><code>fit-content</code> – use the space available, but never less than min-content and never more than max-content.</li>
-                        <li><code>fractional units</code> – see above</li>
+                        <li><code>min-content</code> – минимальный размер содержимого. Представьте себе строку текста типа «Привет, мир», минимальное содержание, вероятно, равно ширине слова «Привет».</li>
+                        <li><code>max-content</code> – максимальный размер содержимого. Представьте предложение выше, максимальное содержание — это длина всего предложения.</li>
+                        <li><code>auto</code> – это ключевое слово очень похоже на единицы fr, за исключением того, что они «проигрывают» битву в размерах единицам fr при распределении оставшегося места.</li>
+                        <li><code>fit-content</code> – использует доступное пространство, но не меньше, чем min-content и не больше, чем max-content.</li>
+                        <li><code>fractional units</code> – см. выше</li>
                     </ul>
                 </div>
                 <div class="article-block">
-                    <h3 class="article-subtitle">Sizing Functions</h3>
-                    <p class="article-text">When sizing rows and columns, you can use all the lengths you are used to, like px, rem, %, etc, but you also have keywords:</p>
+                    <h3 class="article-subtitle">Функции определения размеров</h3>
+                    <p class="article-text">При изменении размеров строк и столбцов вы можете использовать все длины, к которым вы привыкли, такие как px, rem, % и т. д., но у вас также есть функции:</p>
                     <ul class="article-text">
-                        <li>The <code>minmax()</code> function does exactly what it seems like: it sets a minimum and maximum value for what the length is able to be. This is useful for in combination with relative units. Like you may want a column to be only able to shrink so far. This is extremely useful and probably what you want</li>
+                        <li>Функция <code>minmax()</code> делает именно то, как она называется: она устанавливает минимальное и максимальное значение длины. Это полезно в сочетании с относительными единицами. Например, вы можете захотеть, чтобы столбец мог сжиматься только до сих пор.</li>
                         <div class="code">
                             <code>grid-template-columns: minmax(100px, 1fr) 3fr;</code>
                         </div>
-                        <li>The <code>min()</code> function.</li>
-                        <li>The <code>max()</code> function.</li>
+                        <li>Функция<code>min()</code>.</li>
+                        <li>Функция <code>max()</code>.</li>
                     </ul>
                 </div>
                 <div class="article-block">
-                    <h3 class="article-subtitle">The repeat() Function and Keywords</h3>
-                    <p class="article-text">The repeat() function can save some typing:</p>
+                    <h3 class="article-subtitle">Функция repeat() и ключевые слова</h3>
+                    <p class="article-text">Функция repeat() может сэкономить время при описании свойств:</p>
                     <div class="code">
                         <code>grid-template-columns:</code>
                         <code>⠀⠀⠀⠀1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;</code>
                         <code></code>
-                        <code>/* easier: */</code>
+                        <code>/* будет легче: */</code>
                         <code>grid-template-columns:</code>
                         <code>⠀⠀⠀⠀repeat(8, 1fr);</code>
                         <code></code>
-                        <code>/* especially when: */</code>
+                        <code>/* особенно когда: */</code>
                         <code>grid-template-columns:</code>
                         <code>⠀⠀⠀⠀repeat(8, minmax(10px, 1fr));</code>
                     </div>
-                    <p class="article-text">But repeat() can get extra fancy when combined with keywords:</p>
+                    <p class="article-text">Но repeat() может стать еще более универсальной функцией в сочетании с ключевыми словами:</p>
                     <ul class="article-text">
-                        <li><code>auto-fill</code> – fit as many possible columns as possible on a row, even if they are empty.</li>
-                        <li><code>auto-fit</code> – fit whatever columns there are into the space. Prefer expanding columns to fill space rather than empty columns</li>
+                        <li><code>auto-fill</code> – размещает в строке как можно больше столбцов, даже если они пусты</li>
+                        <li><code>auto-fit</code> – вмещает любые столбцы в пространство. Используйте расширяющиеся столбцы для заполнения пространства, а не пустые столбцы</li>
                     </ul>
-                    <p class="article-text">This bears the most famous snippet in all of CSS Grid and one of the all-time great CSS tricks:</p>
+                    <p class="article-text">Это самый известный фрагмент кода во всей CSS Grid и один из величайших CSS-трюков всех времен:</p>
                     <div class="code">
                         <code>grid-template-columns:</code>
                         <code>⠀⠀⠀⠀repeat(auto-fit, minmax(250px, 1fr));</code>
                     </div>
-                    <p class="article-text">The difference between the keywords is spelled out in detail here.</p>
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">Masonry</h3>
-                    <p class="article-text">An experimental feature of CSS grid is masonry layout. Note that there are lots of approaches to CSS masonry, but mostly of them are trickery and either have major downsides or aren’t what you quite expect.</p>
-                    <p class="article-text">The spec has an official way now, and this is behind a flag in Firefox:</p>
+                    <p class="article-text">Экспериментальная функция сетки CSS — masonry. Обратите внимание, что существует множество подходов к CSS masonry, но большинство из них обманчивы и либо имеют серьезные недостатки, либо дают не совсем то, что вы ожидаете.</p>
+                    <p class="article-text">Теперь у спецификации CSS Grid есть официальный способ, и это используется с флагом в Firefox:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀display: grid;</code>
@@ -117,8 +116,8 @@
                     </div>
                 </div>
                 <div class="article-block">
-                    <h3 class="article-subtitle">Subgrid</h3>
-                    <p class="article-text">Subgrid is an extremely useful feature of grids that allows grid items to have a grid of their own that inherits grid lines from the parent grid.</p>
+                    <h3 class="article-subtitle">Подсетка</h3>
+                    <p class="article-text">Подсетка — чрезвычайно полезная функция сеток, которая позволяет элементам сетки иметь собственную сетку, которая наследует линии сетки от родительской сетки.</p>
                     <div class="code">
                         <code>.parent-grid {</code>
                         <code>⠀⠀⠀⠀display: grid;</code>
@@ -130,18 +129,18 @@
                         <code>⠀⠀⠀⠀grid-template-columns: subgrid;</code>
                         <code>}</code>
                         <code>.child-of-grid-item {</code>
-                        <code>⠀⠀⠀⠀/* gets to participate on parent grid! */</code>
+                        <code>⠀⠀⠀⠀/* получает возможность участвовать в родительской сетке */</code>
                         <code>⠀⠀⠀⠀grid-column: 3 / 6;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">This is only supported in Firefox right now, but it really needs to get everywhere.</p>
-                    <p class="article-text">It’s also useful to know about display: contents;. This is not the same as subgrid, but it can be a useful tool sometimes in a similar fashion.</p>
+                    <p class="article-text">На данный момент это поддерживается только в Firefox.</p>
+                    <p class="article-text">Также полезно знать про <code>display: contents;</code>. Это не то же самое, что подсетка, но иногда она может быть полезным инструментом в похожем стиле.</p>
                     <div class="code">
                         <code>&lt;div class="grid-parent"&gt;</code>
                         <code>⠀⠀⠀⠀&lt;div class="grid-item"&gt;&lt;/div&gt;</code>
                         <code>⠀⠀⠀⠀&lt;div class="grid-item"&gt;&lt;/div&gt;</code>
                         <code>⠀⠀⠀⠀&lt;ul style="display: contents;"&gt;</code>
-                        <code>⠀⠀⠀⠀⠀⠀⠀⠀&lt;!-- These grid-items get to participate on the same grid!--&gt;</code>
+                        <code>⠀⠀⠀⠀⠀⠀⠀⠀&lt;!-- Эти элементы сетки участвуют в одной сетке --&gt;</code>
                         <code>⠀⠀⠀⠀⠀⠀⠀⠀&lt;li class="grid-item"&gt;&lt;/li&gt;</code>
                         <code>⠀⠀⠀⠀⠀⠀⠀⠀&lt;li class="grid-item"&gt;&lt;/li&gt;</code>
                         <code>⠀⠀⠀⠀&lt;/ul&gt;</code>

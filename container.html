@@ -45,11 +45,11 @@
             <div class="article-content">
                 <div class="article-block">
                     <h3 class="article-subtitle">display</h3>
-                    <p class="article-text">Defines the element as a grid container and establishes a new grid formatting context for its contents.</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Определяет элемент как контейнер сетки и устанавливает новый контекст форматирования сетки для его содержимого.</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>grid</code> – generates a block-level grid</li>
-                        <li><code>inline-grid</code> – generates an inline-level grid</li>
+                        <li><code>grid</code> – генерирует сетку на уровне блоков</li>
+                        <li><code>inline-grid</code> – генерирует сетку строчного уровня</li>
                     </ul>
                     <div class="code">
                         <code>.container {</code>
@@ -59,31 +59,31 @@
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">grid-template-columns, grid-template-rows</h3>
-                    <p class="article-text">Defines the columns and rows of the grid with a space-separated list of values. The values represent the track size, and the space between them represents the grid line.</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Определяет столбцы и строки сетки со списком значений, разделенных пробелами. Значения представляют размер дорожки, а пространство между ними представляет собой линию сетки.</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>&lt;track-size&gt;</code> – can be a length, a percentage, or a fraction of the free space in the grid (using the fr unit)</li>
-                        <li><code>&lt;line-name&gt;</code> – an arbitrary name of your choosing</li>
+                        <li><code>&lt;track-size&gt;</code> – может быть длиной (определяется стандартными единицами такими как px), процентом или долей свободного места в сетке (с использованием единицы fr)</li>
+                        <li><code>&lt;line-name&gt;</code> – произвольное название которое вы выберете</li>
                     </ul>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid-template-columns: ...  ...;</code>
-                        <code>⠀⠀⠀⠀/* e.g.</code>
+                        <code>⠀⠀⠀⠀/* например</code>
                         <code>⠀⠀⠀⠀⠀⠀⠀⠀1fr 1fr</code>
                         <code>⠀⠀⠀⠀⠀⠀⠀⠀minmax(10px, 1fr) 3fr</code>
                         <code>⠀⠀⠀⠀⠀⠀⠀⠀repeat(5, 1fr)</code>
                         <code>⠀⠀⠀⠀⠀⠀⠀⠀50px auto 100px 1fr</code>
                         <code>⠀⠀⠀⠀*/</code>
                         <code>⠀⠀⠀⠀grid-template-rows: ... ...;</code>
-                        <code>⠀⠀⠀⠀/* e.g.</code>
+                        <code>⠀⠀⠀⠀/* например</code>
                         <code>⠀⠀⠀⠀⠀⠀⠀⠀min-content 1fr min-content</code>
                         <code>⠀⠀⠀⠀⠀⠀⠀⠀100px 1fr max-content</code>
                         <code>⠀⠀⠀⠀*/</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">Grid lines are automatically assigned positive numbers from these assignments (-1 being an alternate for the very last row).</p>
+                    <p class="article-text">Линии сетки автоматически получают положительные числа из этих назначений (-1 является альтернативой для самой последней строки).</p>
                     <img src="https://css-tricks.com/wp-content/uploads/2018/11/template-columns-rows-01.svg" alt="grid-template-columns, grid-template-rows" class="article-image">
-                    <p class="article-text">But you can choose to explicitly name the lines. Note the bracket syntax for the line names:</p>
+                    <p class="article-text">Но вы можете явно назвать строки. Обратите внимание на синтаксис скобок для именования строк:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];</code>
@@ -91,37 +91,37 @@
                         <code>}</code>
                     </div>
                     <img src="https://css-tricks.com/wp-content/uploads/2018/11/template-column-rows-02.svg" alt="grid-template-columns, grid-template-rows" class="article-image">
-                    <p class="article-text">Note that a line can have more than one name. For example, here the second line will have two names: row1-end and row2-start:</p>
+                    <p class="article-text">Обратите внимание, что строка может иметь более одного имени. Например, здесь вторая строка будет иметь два имени: row1-end и row2-start:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid-template-rows: [row1-start] 25% [row1-end row2-start] 25% [row2-end];</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">If your definition contains repeating parts, you can use the repeat() notation to streamline things:</p>
+                    <p class="article-text">Если ваше определение содержит повторяющиеся части, вы можете использовать функцию repeat() для оптимизации:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid-template-columns: repeat(3, 20px [col-start]);</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">Which is equivalent to this:</p>
+                    <p class="article-text">Что эквивалентно этому:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid-template-columns: 20px [col-start] 20px [col-start] 20px [col-start];</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">If multiple lines share the same name, they can be referenced by their line name and count.</p>
+                    <p class="article-text">Если несколько строк имеют одно и то же имя, на них можно ссылаться по имени строки и количеству.</p>
                     <div class="code">
                         <code>.item {</code>
                         <code>⠀⠀⠀⠀grid-column-start: col-start 2;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">The fr unit allows you to set the size of a track as a fraction of the free space of the grid container. For example, this will set each item to one third the width of the grid container:</p>
+                    <p class="article-text">Единица fr позволяет вам установить размер дорожки как часть свободного пространства контейнера сетки. Например, значение ниже установит для каждого элемента одну треть ширины контейнера сетки:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid-template-columns: 1fr 1fr 1fr;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">The free space is calculated after any non-flexible items. In this example the total amount of free space available to the fr units doesn’t include the 50px:</p>
+                    <p class="article-text">Свободное пространство рассчитывается после любых негибких элементов. В этом примере общий объем свободного места, доступного для блоков fr, не включает 50 пикселей:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid-template-columns: 1fr 50px 1fr 1fr;</code>
@@ -130,13 +130,13 @@
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">grid-template-areas</h3>
-                    <p class="article-text">Defines a grid template by referencing the names of the grid areas which are specified with the grid-area property.</p>
-                    <p class="article-text">Repeating the name of a grid area causes the content to span those cells. A period signifies an empty cell. The syntax itself provides a visualization of the structure of the grid.</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Определяет шаблон сетки, ссылаясь на имена областей сетки, указанные в свойстве grid-area.</p>
+                    <p class="article-text">Повторение имени области сетки приводит к тому, что содержимое охватывает эти ячейки. Точка означает пустую ячейку. Сам синтаксис обеспечивает визуализацию структуры сетки.</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>&lt;grid-area-name&gt;</code> – the name of a grid area specified with grid-area</li>
-                        <li><code>.</code> – a period signifies an empty grid cell</li>
-                        <li><code>none</code> – no grid areas are defined</li>
+                        <li><code>&lt;grid-area-name&gt;</code> – имя области сетки, указанное с помощью grid-area</li>
+                        <li><code>.</code> – пустая ячейка сетки</li>
+                        <li><code>none</code> – области сетки не определены</li>
                     </ul>
                     <div class="code">
                         <code>.container {</code>
@@ -145,7 +145,7 @@
                         <code>⠀⠀⠀⠀⠀⠀⠀⠀"...";</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">Example:</p>
+                    <p class="article-text">Пример:</p>
                     <div class="code">
                         <code>.item-a {</code>
                         <code>⠀⠀⠀⠀grid-area: header</code>
@@ -170,7 +170,7 @@
                         <code>⠀⠀⠀⠀⠀⠀⠀⠀"footer footer footer footer";</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">That’ll create a grid that’s four columns wide by three rows tall. The entire top row will be composed of the header area. The middle row will be composed of two main areas, one empty cell, and one sidebar area. The last row is all footer.</p>
+                    <p class="article-text">Этот код создаст сетку шириной четыре столбца и высотой три строки. Вся верхняя строка будет состоять из области header. Средняя строка будет состоять из двух основных областей, одной пустой ячейки и одной боковой панели. Последняя строка — footer.</p>
                     <div class="article-scheme-table grid-template-areas">
                         <div class="article-scheme-part">header</div>
                         <div class="article-scheme-part">main</div>
@@ -178,24 +178,24 @@
                         <div class="article-scheme-part">sidebar</div>
                         <div class="article-scheme-part">footer</div>
                     </div>
-                    <p class="article-text">Each row in your declaration needs to have the same number of cells.</p>
-                    <p class="article-text">You can use any number of adjacent periods to declare a single empty cell. As long as the periods have no spaces between them they represent a single cell.</p>
-                    <p class="article-text">Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is foo, the name of the area’s starting row line and starting column line will be foo-start, and the name of its last row line and last column line will be foo-end. This means that some lines might have multiple names, such as the far left line in the above example, which will have three names: header-start, main-start, and footer-start.</p>
+                    <p class="article-text">Каждая строка должна иметь одинаковое количество ячеек.</p>
+                    <p class="article-text">Вы можете использовать любое количество соседних точек, чтобы объявить одну пустую ячейку. Пока точки не имеют пробелов между ними, они представляют собой одну ячейку.</p>
+                    <p class="article-text">Обратите внимание, что вы называете не линии с помощью этого свойства, а только области. Когда вы используете это свойство, строки на обоих концах областей фактически получают имена автоматически. Если имя вашей области сетки — foo, имя начальной строки строки и начального столбца области будет foo-start, а имя ее последней строки строки и последнего столбца — foo-end. Это означает, что некоторые строки могут иметь несколько имен, например, крайняя левая строка в приведенном выше примере будет иметь три имени: header-start, main-start и footer-start.</p>
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">grid-template</h3>
-                    <p class="article-text">A shorthand for setting grid-template-rows, grid-template-columns, and grid-template-areas in a single declaration.</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Сокращение для установки grid-template-rows, grid-template-columns и grid-template-areas в одном объявлении.</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>none</code> – sets all three properties to their initial values</li>
-                        <li><code>&lt;grid-template-rows&gt; / &lt;grid-template-columns&gt;</code> – sets grid-template-columns and grid-template-rows to the specified values, respectively, and sets grid-template-areas to none</li>
+                        <li><code>none</code> – устанавливает все три свойства в их начальные значения</li>
+                        <li><code>&lt;grid-template-rows&gt; / &lt;grid-template-columns&gt;</code> – устанавливает для grid-template-columns и grid-template-rows указанные значения соответственно и устанавливает для grid-template-areas значение none</li>
                     </ul>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid-template: none | &lt;grid-template-rows&gt; / &lt;grid-template-columns&gt;;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">It also accepts a more complex but quite handy syntax for specifying all three. Here’s an example:</p>
+                    <p class="article-text">Это свойство также принимает более сложный, но довольно удобный синтаксис для указания всех трех свойств. Например:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid-template: </code>
@@ -204,7 +204,7 @@
                         <code>⠀⠀⠀⠀⠀⠀⠀⠀/ auto 50px auto;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">That’s equivalent to this:</p>
+                    <p class="article-text">Это эквивалентно этому:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid-template-rows: [row1-start] 25px [row1-end row2-start] 25px [row2-end];</code>
@@ -214,27 +214,27 @@
                         <code>⠀⠀⠀⠀⠀⠀⠀⠀"footer footer footer";</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">Since grid-template doesn’t reset the implicit grid properties (grid-auto-columns, grid-auto-rows, and grid-auto-flow), which is probably what you want to do in most cases, it’s recommended to use the grid property instead of grid-template.</p>
+                    <p class="article-text">Поскольку grid-template не сбрасывает неявные свойства сетки (grid-auto-columns, grid-auto-rows и grid-auto-flow), что, вероятно, и требуется в большинстве случаев, рекомендуется использовать свойство сетки вместо шаблона сетки.</p>
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">column-gap, row-gap, grid-column-gap, grid-row-gap</h3>
-                    <p class="article-text">Specifies the size of the grid lines. You can think of it like setting the width of the gutters between the columns/rows.</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Задает размер отступов между колонками и строками.</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>&lt;line-size&gt;</code> – a length value</li>
+                        <li><code>&lt;line-size&gt;</code> – значение длины (определяется стандартными единицами такими как px)</li>
                     </ul>
                     <div class="code">
                         <code>.container {</code>
-                        <code>⠀⠀⠀⠀/* standard */</code>
+                        <code>⠀⠀⠀⠀/* стандартный синтаксис */</code>
                         <code>⠀⠀⠀⠀column-gap: &lt;line-size&gt;;</code>
                         <code>⠀⠀⠀⠀row-gap: &lt;line-size&gt;;</code>
                         <code></code>
-                        <code>⠀⠀⠀⠀/* old */</code>
+                        <code>⠀⠀⠀⠀/* старый синтаксис */</code>
                         <code>⠀⠀⠀⠀grid-column-gap: &lt;line-size&gt;;</code>
                         <code>⠀⠀⠀⠀grid-row-gap: &lt;line-size&gt;;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">Example:</p>
+                    <p class="article-text">Пример:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid-template-columns: 100px 50px 100px;</code>
@@ -254,26 +254,25 @@
                         <div class="article-scheme-part"></div>
                         <div class="article-scheme-part"></div>
                     </div>
-                    <p class="article-text">The gutters are only created between the columns/rows, not on the outer edges.</p>
-                    <p class="article-text">Note: The grid- prefix will be removed and grid-column-gap and grid-row-gap renamed to column-gap and row-gap. The unprefixed properties are already supported in Chrome 68+, Safari 11.2 Release 50+, and Opera 54+.</p>
+                    <p class="article-text">Отступы создаются только между столбцами/строками и не создаются на внешних краях.</p>
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">gap, grid-gap</h3>
-                    <p class="article-text">A shorthand for row-gap and column-gap</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Сокращение для row-gap и column-gap</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>&lt;grid-row-gap&gt; &lt;grid-column-gap&gt;</code> – a length values</li>
+                        <li><code>&lt;grid-row-gap&gt; &lt;grid-column-gap&gt;</code> – значение длины (определяется стандартными единицами такими как px)</li>
                     </ul>
                     <div class="code">
                         <code>.container {</code>
-                        <code>⠀⠀⠀⠀/* standard */</code>
+                        <code>⠀⠀⠀⠀/* стандартный синтаксис */</code>
                         <code>⠀⠀⠀⠀gap: &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;;</code>
                         <code></code>
-                        <code>⠀⠀⠀⠀/* old */</code>
+                        <code>⠀⠀⠀⠀/* старый синтаксис */</code>
                         <code>⠀⠀⠀⠀grid-gap: &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">Example:</p>
+                    <p class="article-text">Пример:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid-template-columns: 100px 50px 100px;</code>
@@ -281,25 +280,24 @@
                         <code>⠀⠀⠀⠀gap: 15px 10px;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">If no row-gap is specified, it’s set to the same value as column-gap</p>
-                    <p class="article-text">Note: The grid- prefix is deprecated (but who knows, may never actually be removed from browsers). Essentially grid-gap renamed to gap. The unprefixed property is already supported in Chrome 68+, Safari 11.2 Release 50+, and Opera 54+.</p>
+                    <p class="article-text">Если row-gap не указан, ему задается такое же значение, что и column-gap.</p>
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">justify-items</h3>
-                    <p class="article-text">Aligns grid items along the inline (row) axis (as opposed to align-items which aligns along the block (column) axis). This value applies to all grid items inside the container.</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Выравнивает элементы сетки вдоль строчной оси (строка) (в отличии от свойства align-items, которое выравнивает по блочной оси (столбец)). Это значение применяется ко всем элементам сетки внутри контейнера.</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>start</code> – aligns items to be flush with the start edge of their cell</li>
-                        <li><code>end</code> – aligns items to be flush with the end edge of their cell</li>
-                        <li><code>center</code> – aligns items in the center of their cell</li>
-                        <li><code>stretch</code> – fills the whole width of the cell (this is the default)</li>
+                        <li><code>start</code> – выравнивает элементы так, чтобы они были на одном уровне с начальным краем их ячейки</li>
+                        <li><code>end</code> – выравнивает элементы так, чтобы они были на одном уровне с конечным краем их ячейки</li>
+                        <li><code>center</code> – выравнивает элементы по центру их ячейки</li>
+                        <li><code>stretch</code> – заполняет всю ширину ячейки (по умолчанию)</li>
                     </ul>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀justify-items: start | end | center | stretch;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">Examples:</p>
+                    <p class="article-text">Примеры:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀justify-items: start;</code>
@@ -367,21 +365,21 @@
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">align-items</h3>
-                    <p class="article-text">Aligns grid items along the block (column) axis (as opposed to justify-items which aligns along the inline (row) axis). This value applies to all grid items inside the container.</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Выравнивает элементы сетки по блочной оси (столбец) (в отличии от свойства justify-items, которое выравнивает по строчной оси (строка)). Это значение применяется ко всем элементам сетки внутри контейнера.</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>start</code> – aligns items to be flush with the start edge of their cell</li>
-                        <li><code>end</code> – aligns items to be flush with the end edge of their cell</li>
-                        <li><code>center</code> – aligns items in the center of their cell</li>
-                        <li><code>stretch</code> – fills the whole height of the cell (this is the default)</li>
-                        <li><code>baseline</code> – align items along text baseline. There are modifiers to baseline — first baseline and last baseline which will use the baseline from the first or last line in the case of multi-line text.</li>
+                        <li><code>start</code> – выравнивает элементы так, чтобы они были на одном уровне с начальным краем их ячейки</li>
+                        <li><code>end</code> – выравнивает элементы так, чтобы они были на одном уровне с конечным краем их ячейки</li>
+                        <li><code>center</code> – выравнивает элементы по центру их ячейки</li>
+                        <li><code>stretch</code> – заполняет всю высоту ячейки (по умолчанию)</li>
+                        <li><code>baseline</code> – выравнивание элементов по базовой линии текста.</li>
                     </ul>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀align-items: start | end | center | stretch;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">Examples:</p>
+                    <p class="article-text">Примеры:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀align-items: start;</code>
@@ -446,18 +444,16 @@
                         <div class="article-scheme-part"></div>
                         <div class="article-scheme-part"></div>
                     </div>
-                    <p class="article-text">This behavior can also be set on individual grid items via the align-self property.</p>
-                    <p class="article-text">There are also modifier keywords safe and unsafe (usage is like align-items: safe end). The safe keyword means “try to align like this, but not if it means aligning an item such that it moves into inaccessible overflow area”, while unsafe will allow moving content into inaccessible areas (“data loss”).</p>
+                    <p class="article-text">Эффект этого свойства также можно установить для отдельных элементов сетки с помощью свойства align-self.</p>
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">place-items</h3>
-                    <p class="article-text">place-items sets both the align-items and justify-items properties in a single declaration.</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">place-items задает свойства align-items и justify-items в одном объявлении.</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>&lt;align-items&gt; / &lt;justify-items&gt;</code> – the first value sets align-items, the second value justify-items. If the second value is omitted, the first value is assigned to both properties.</li>
+                        <li><code>&lt;align-items&gt; / &lt;justify-items&gt;</code> – первое значение устанавливает align-items, второе значение justify-items. Если второе значение опущено, первое значение присваивается обоим свойствам.</li>
                     </ul>
-                    <p class="article-text">For more details, see align-items and justify-items.</p>
-                    <p class="article-text">This can be very useful for super quick multi-directional centering:</p>
+                    <p class="article-text">Это может быть очень полезно для сверхбыстрого центрирования по обеим из осей:</p>
                     <div class="code">
                         <code>.center {</code>
                         <code>⠀⠀⠀⠀display: grid;</code>
@@ -467,23 +463,23 @@
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">justify-content</h3>
-                    <p class="article-text">Sometimes the total size of your grid might be less than the size of its grid container. This could happen if all of your grid items are sized with non-flexible units like px. In this case you can set the alignment of the grid within the grid container. This property aligns the grid along the inline (row) axis (as opposed to align-content which aligns the grid along the block (column) axis).</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Иногда общий размер вашей сетки может быть меньше размера ее контейнера. Это может произойти, если все элементы сетки имеют негибкие единицы измерения, такие как px. В этом случае вы можете установить выравнивание сетки внутри контейнера. Это свойство выравнивает сетку по строчной оси (строка) (в отличии свойства от align-content, которое выравнивает сетку по блочной оси (столбец)).</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>start</code> – aligns the grid to be flush with the start edge of the grid container</li>
-                        <li><code>end</code> – aligns the grid to be flush with the end edge of the grid container</li>
-                        <li><code>center</code> – aligns the grid in the center of the grid container</li>
-                        <li><code>stretch</code> – resizes the grid items to allow the grid to fill the full width of the grid container</li>
-                        <li><code>space-around</code> – places an even amount of space between each grid item, with half-sized spaces on the far ends</li>
-                        <li><code>space-between</code> – places an even amount of space between each grid item, with no space at the far ends</li>
-                        <li><code>space-evenly</code> – places an even amount of space between each grid item, including the far ends</li>
+                        <li><code>start</code> – выравнивает сетку так, чтобы она была на одном уровне с начальным краем контейнера</li>
+                        <li><code>end</code> – выравнивает сетку так, чтобы она была на одном уровне с конечным краем контейнера</li>
+                        <li><code>center</code> – выравнивает сетку по центру контейнера</li>
+                        <li><code>stretch</code> – изменяет размер элементов сетки, чтобы сетка могла заполнить всю ширину контейнера</li>
+                        <li><code>space-around</code> – помещает четное количество пространства между каждым элементом сетки с отступами половинного размера на дальних концах</li>
+                        <li><code>space-between</code> – размещает равномерное пространство между каждым элементом сетки, без отступов на дальних концах</li>
+                        <li><code>space-evenly</code> – помещает четное расстояние между каждым элементом сетки, включая дальние концы</li>
                     </ul>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀justify-content: start | end | center | stretch | space-around | space-between | space-evenly;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">Examples:</p>
+                    <p class="article-text">Примеры:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀justify-content: start;</code>
@@ -599,23 +595,23 @@
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">align-content</h3>
-                    <p class="article-text">Sometimes the total size of your grid might be less than the size of its grid container. This could happen if all of your grid items are sized with non-flexible units like px. In this case you can set the alignment of the grid within the grid container. This property aligns the grid along the block (column) axis (as opposed to justify-content which aligns the grid along the inline (row) axis).</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Это свойство выравнивает сетку по блочной оси (столбец) (в отличии от свойства justify-content, которое выравнивает сетку по строчной оси (строка).</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>start</code> – aligns the grid to be flush with the start edge of the grid container</li>
-                        <li><code>end</code> – aligns the grid to be flush with the end edge of the grid container</li>
-                        <li><code>center</code> – aligns the grid in the center of the grid container</li>
-                        <li><code>stretch</code> – resizes the grid items to allow the grid to fill the full width of the grid container</li>
-                        <li><code>space-around</code> – places an even amount of space between each grid item, with half-sized spaces on the far ends</li>
-                        <li><code>space-between</code> – places an even amount of space between each grid item, with no space at the far ends</li>
-                        <li><code>space-evenly</code> – places an even amount of space between each grid item, including the far ends</li>
+                        <li><code>start</code> – выравнивает сетку так, чтобы она была на одном уровне с начальным краем контейнера</li>
+                        <li><code>end</code> – выравнивает сетку так, чтобы она была на одном уровне с конечным краем контейнера</li>
+                        <li><code>center</code> – выравнивает сетку по центру контейнера</li>
+                        <li><code>stretch</code> – изменяет размер элементов сетки, чтобы сетка могла заполнить всю высоту контейнера</li>
+                        <li><code>space-around</code> – помещает четное количество пространства между каждым элементом сетки с отступами половинного размера на дальних концах</li>
+                        <li><code>space-between</code> – размещает равномерное пространство между каждым элементом сетки, без отступом на дальних концах</li>
+                        <li><code>space-evenly</code> – помещает четное расстояние между каждым элементом сетки, включая дальние концы</li>
                     </ul>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀align-content: start | end | center | stretch | space-around | space-between | space-evenly;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">Examples:</p>
+                    <p class="article-text">Примеры:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀align-content: start;</code>
@@ -731,20 +727,19 @@
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">place-content</h3>
-                    <p class="article-text">place-content sets both the align-content and justify-content properties in a single declaration.</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">place-content задает свойства align-content и justify-content в одном объявлении.</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>&lt;align-content&gt; / &lt;justify-content&gt;</code> – the first value sets align-content, the second value justify-content. If the second value is omitted, the first value is assigned to both properties.</li>
+                        <li><code>&lt;align-content&gt; / &lt;justify-content&gt;</code> – первое значение устанавливает align-content, второе значение — justify-content. Если второе значение опущено, первое значение присваивается обоим свойствам.</li>
                     </ul>
-                    <p class="article-text">All major browsers except Edge support the place-content shorthand property.</p>
-                    <p class="article-text">For more details, see align-content and justify-content.</p>
+                    <p class="article-text">Все основные браузеры, кроме Edge, поддерживают сокращенное свойство place-content.</p>
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">grid-auto-columns, grid-auto-rows</h3>
-                    <p class="article-text">Specifies the size of any auto-generated grid tracks (aka implicit grid tracks). Implicit tracks get created when there are more grid items than cells in the grid or when a grid item is placed outside of the explicit grid. (see The Difference Between Explicit and Implicit Grids)</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Определяет размер любых автоматически сгенерированных дорожек сетки (так называемых неявных дорожек сетки). Неявные дорожки создаются, когда элементов сетки больше, чем ячеек в сетке, или когда элемент сетки размещается за пределами явной сетки.</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>&lt;track-size&gt;</code> – can be a length, a percentage, or a fraction of the free space in the grid (using the fr unit)</li>
+                        <li><code>&lt;track-size&gt;</code> – может быть длиной (определяется стандартными единицами такими как px), процентом или долей свободного места в сетке (с использованием единицы fr)</li>
                     </ul>
                     <div class="code">
                         <code>.container {</code>
@@ -752,7 +747,7 @@
                         <code>⠀⠀⠀⠀grid-auto-rows: &lt;track-size&gt; ...;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">To illustrate how implicit grid tracks get created, think about this:</p>
+                    <p class="article-text">Чтобы проиллюстрировать, как создаются неявные дорожки сетки, посмотрите на пример ниже:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid-template-columns: 60px 60px;</code>
@@ -760,8 +755,8 @@
                         <code>}</code>
                     </div>
                     <img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-auto-columns-rows-01.svg" alt="grid-auto-columns, grid-auto-rows" class="article-image">
-                    <p class="article-text">This creates a 2 x 2 grid.</p>
-                    <p class="article-text">But now imagine you use grid-column and grid-row to position your grid items like this:</p>
+                    <p class="article-text">Это создает сетку 2 x 2.</p>
+                    <p class="article-text">Но теперь представьте, что вы используете grid-column и grid-row для позиционирования элементов сетки следующим образом:</p>
                     <div class="code">
                         <code>.item-a {</code>
                         <code>⠀⠀⠀⠀grid-column: 1 / 2;</code>
@@ -773,7 +768,7 @@
                         <code>}</code>
                     </div>
                     <img src="https://css-tricks.com/wp-content/uploads/2018/11/grid-auto-columns-rows-02.svg" alt="grid-auto-columns, grid-auto-rows" class="article-image">
-                    <p class="article-text">We told .item-b to start on column line 5 and end at column line 6, but we never defined a column line 5 or 6. Because we referenced lines that don’t exist, implicit tracks with widths of 0 are created to fill in the gaps. We can use grid-auto-columns and grid-auto-rows to specify the widths of these implicit tracks:</p>
+                    <p class="article-text">Мы задали, что .item-b начинаться со столбца 5 и заканчиваться столбцом 6, но мы никогда не определяли столбец 5 или 6. Поскольку мы ссылались на строки, которые не существуют, неявные дорожки с шириной 0 создаются для заполнения в отступах. Мы можем использовать grid-auto-columns и grid-auto-rows, чтобы указать ширину этих неявных дорожек:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid-auto-columns: 60px;</code>
@@ -783,21 +778,21 @@
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">grid-auto-flow</h3>
-                    <p class="article-text">If you have grid items that you don’t explicitly place on the grid, the auto-placement algorithm kicks in to automatically place the items. This property controls how the auto-placement algorithm works.</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Если у вас есть элементы сетки, которые вы явно не размещаете в сетке, срабатывает алгоритм автоматического размещения элементов. Это свойство задает, как именно будет работать алгоритма автоматического размещения.</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>row</code> – tells the auto-placement algorithm to fill in each row in turn, adding new rows as necessary (default)</li>
-                        <li><code>column</code> – tells the auto-placement algorithm to fill in each column in turn, adding new columns as necessary</li>
-                        <li><code>dense</code> – tells the auto-placement algorithm to attempt to fill in holes earlier in the grid if smaller items come up later</li>
+                        <li><code>row</code> – указывает алгоритму автоматического размещения заполнять каждую строку по очереди, добавляя новые строки по мере необходимости (по умолчанию)</li>
+                        <li><code>column</code> – указывает алгоритму автоматического размещения заполнять каждый столбец по очереди, добавляя новые столбцы по мере необходимости</li>
+                        <li><code>dense</code> – указывает алгоритму автоматического размещения попытаться заполнить дыры в сетке, если появятся более мелкие элементы</li>
                     </ul>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid-auto-flow: row | column | row dense | column dense;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">Note that dense only changes the visual order of your items and might cause them to appear out of order, which is bad for accessibility.</p>
-                    <p class="article-text">Examples:</p>
-                    <p class="article-text">Consider this HTML:</p>
+                    <p class="article-text">Обратите внимание, что dense изменяет только визуальный порядок ваших элементов и может привести к тому, что они будут отображаться не по порядку, что может помешать в будущем.</p>
+                    <p class="article-text">Примеры:</p>
+                    <p class="article-text">Рассмотрим этот HTML код:</p>
                     <div class="code">
                         <code>&lt;section class="container"&gt;</code>
                         <code>⠀⠀⠀⠀&lt;div class="item-a"&gt;item-a&lt;/div&gt;</code>
@@ -807,7 +802,7 @@
                         <code>⠀⠀⠀⠀&lt;div class="item-e"&gt;item-e&lt;/div&gt;</code>
                         <code>&lt;/section&gt;</code>
                     </div>
-                    <p class="article-text">You define a grid with five columns and two rows, and set grid-auto-flow to row (which is also the default):</p>
+                    <p class="article-text">Мы определяем сетку с пятью столбцами и двумя строками и устанавливаем для grid-auto-flow значение row (что также используется по умолчанию).:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀display: grid;</code>
@@ -816,7 +811,7 @@
                         <code>⠀⠀⠀⠀grid-auto-flow: row;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">When placing the items on the grid, you only specify spots for two of them:</p>
+                    <p class="article-text">При размещении элементов на сетке мы указываем места только для двух из них:</p>
                     <div class="code">
                         <code>.item-a {</code>
                         <code>⠀⠀⠀⠀grid-column: 1;</code>
@@ -827,7 +822,7 @@
                         <code>⠀⠀⠀⠀grid-row: 1 / 3;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">Because we set grid-auto-flow to row, our grid will look like this. Notice how the three items we didn’t place (item-b, item-c and item-d) flow across the available rows:</p>
+                    <p class="article-text">Поскольку мы установили для grid-auto-flow значение row, наша сетка будет выглядеть так. Обратите внимание, как три элемента, которые мы не разместили (элемент-b, элемент-c и элемент-d), перемещаются по доступным строкам:</p>
                     <div class="article-scheme-table grid-auto-flow-row">
                         <div class="article-scheme-part">item-a</div>
                         <div class="article-scheme-part">item-b</div>
@@ -835,7 +830,7 @@
                         <div class="article-scheme-part">item-d</div>
                         <div class="article-scheme-part">item-e</div>
                     </div>
-                    <p class="article-text">If we instead set grid-auto-flow to column, item-b, item-c and item-d flow down the columns:</p>
+                    <p class="article-text">Если мы вместо этого установим grid-auto-flow в column, item-b, item-c и item-d будут распределяться вниз по столбцам.:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀display: grid;</code>
@@ -854,16 +849,16 @@
                 </div>
                 <div class="article-block">
                     <h3 class="article-subtitle">grid</h3>
-                    <p class="article-text">A shorthand for setting all of the following properties in a single declaration: grid-template-rows, grid-template-columns, grid-template-areas, grid-auto-rows, grid-auto-columns, and grid-auto-flow (Note: You can only specify the explicit or the implicit grid properties in a single grid declaration).</p>
-                    <p class="article-text">Values:</p>
+                    <p class="article-text">Сокращение для установки всех следующих свойств в одном объявлении: grid-template-rows, grid-template-columns, grid-template-areas, grid-auto-rows, grid-auto-columns и grid-auto-flow. (Примечание: вы можете указать явные или неявные свойства сетки только в одном объявлении сетки).</p>
+                    <p class="article-text">Возможные значения:</p>
                     <ul class="article-text">
-                        <li><code>none</code> – the first value sets align-content, the second value justify-content. If the second value is omitted, the first value is assigned to both properties.</li>
-                        <li><code>&lt;grid-template&gt;</code> – works the same as the grid-template shorthand.</li>
-                        <li><code>&lt;grid-template-rows&gt; / [ auto-flow && dense? ] &lt;grid-auto-columns&gt;?</code> – sets grid-template-rows to the specified value. If the auto-flow keyword is to the right of the slash, it sets grid-auto-flow to column. If the dense keyword is specified additionally, the auto-placement algorithm uses a “dense” packing algorithm. If grid-auto-columns is omitted, it is set to auto.</li>
-                        <li><code>[ auto-flow && dense? ] &lt;grid-auto-rows&gt;? / &lt;grid-template-columns&gt;</code> – sets grid-template-columns to the specified value. If the auto-flow keyword is to the left of the slash, it sets grid-auto-flow to row. If the dense keyword is specified additionally, the auto-placement algorithm uses a “dense” packing algorithm. If grid-auto-rows is omitted, it is set to auto.</li>
+                        <li><code>none</code> – первое значение устанавливает align-content, второе значение — justify-content. Если второе значение опущено, первое значение присваивается обоим свойствам.</li>
+                        <li><code>&lt;grid-template&gt;</code> – работает так же, как сокращение grid-template.</li>
+                        <li><code>&lt;grid-template-rows&gt; / [ auto-flow && dense? ] &lt;grid-auto-columns&gt;?</code> – устанавливает grid-template-rows в указанное значение. Если ключевое слово auto-flow находится справа от слеша, оно устанавливает grid-auto-flow в столбец. Если дополнительно указано ключевое слово dense, алгоритм авторазмещения использует dense алгоритм расположения. Если параметр grid-auto-columns опущен, для него устанавливается значение auto.</li>
+                        <li><code>[ auto-flow && dense? ] &lt;grid-auto-rows&gt;? / &lt;grid-template-columns&gt;</code> – устанавливает grid-template-columns в указанное значение. Если ключевое слово auto-flow находится слева от слеша, оно устанавливает для grid-auto-flow значение row. Если дополнительно указано ключевое слово dense, алгоритм авторазмещения использует dense алгоритм расположения. Если параметр grid-auto-rows опущен, для него устанавливается значение auto.</li>
                     </ul>
-                    <p class="article-text">Examples:</p>
-                    <p class="article-text">The following two code blocks are equivalent:</p>
+                    <p class="article-text">Примеры:</p>
+                    <p class="article-text">Следующие два блока кода эквивалентны:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid: 100px 300px / 3fr 1fr;</code>
@@ -875,7 +870,7 @@
                         <code>⠀⠀⠀⠀grid-template-columns: 3fr 1fr;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">The following two code blocks are equivalent:</p>
+                    <p class="article-text">Следующие два блока кода эквивалентны:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid: auto-flow / 200px 1fr;</code>
@@ -887,7 +882,7 @@
                         <code>⠀⠀⠀⠀grid-template-columns: 200px 1fr;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">The following two code blocks are equivalent:</p>
+                    <p class="article-text">Следующие два блока кода эквивалентны:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid: auto-flow dense 100px / 1fr 2fr;</code>
@@ -900,7 +895,7 @@
                         <code>⠀⠀⠀⠀grid-template-columns: 1fr 2fr;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">And the following two code blocks are equivalent:</p>
+                    <p class="article-text">Следующие два блока кода также эквивалентны:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid: 100px 300px / auto-flow 200px;</code>
@@ -913,7 +908,7 @@
                         <code>⠀⠀⠀⠀grid-auto-columns: 200px;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">It also accepts a more complex but quite handy syntax for setting everything at once. You specify grid-template-areas, grid-template-rows and grid-template-columns, and all the other sub-properties are set to their initial values. What you’re doing is specifying the line names and track sizes inline with their respective grid areas. This is easiest to describe with an example:</p>
+                    <p class="article-text">Он также принимает более сложный, но довольно удобный синтаксис для установки всего сразу. Вы указываете grid-template-areas, grid-template-rows и grid-template-columns, а всем остальным подсвойствам присваиваются их начальные значения. Что вы делаете, так это указываете имена линий и размеры дорожек вместе с соответствующими областями сетки. Проще всего это описать на примере:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid: [row1-start] "header header header" 1fr [row1-end]</code>
@@ -921,7 +916,7 @@
                         <code>⠀⠀⠀⠀⠀⠀⠀⠀/ auto 50px auto;</code>
                         <code>}</code>
                     </div>
-                    <p class="article-text">That’s equivalent to this:</p>
+                    <p class="article-text">Это эквивалентно этому:</p>
                     <div class="code">
                         <code>.container {</code>
                         <code>⠀⠀⠀⠀grid-template-areas:</code>
